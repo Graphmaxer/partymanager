@@ -3,7 +3,7 @@
   <head>
     <script src="https://cdn.socket.io/socket.io-1.4.3.js"></script>
     <script src="./client.js"></script>
-    <script src="./api/config"></script>  <!-- Loaded via REST API -->
+    <script src="partymanagerserver-graphmaxer.rhcloud.com:8000/api/config"></script>  <!-- Loaded via REST API -->
     <title>Socket.io websocket example for OpenShift</title>
   </head>
   <body>
