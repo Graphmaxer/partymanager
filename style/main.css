@@ -1,21 +1,21 @@
 body {
-    background-color : rgb(50,50,80);
-    color: white;
-    text-align: center;
+	background-color : rgb(50,50,80);
+	color: white;
+	text-align: center;
 }
 
 #tchat {
-    background-color: white;
-    opacity: 0.8;
-    width: 500px;
-    height: 300px;
-    margin: auto;
-    border: 3px rgb(40,40,40) solid;
-    overflow: auto;
+	background-color: white;
+	opacity: 0.8;
+	width: 500px;
+	height: 300px;
+	margin: auto;
+	border: 3px rgb(40,40,40) solid;
+	overflow: auto;
 }
 .line {
-    border-bottom: 1px rgb(80,80,80) solid;
-    padding: 4px;
-    text-align: left;
-    color: rgb(40,40,40);
+	border-bottom: 1px rgb(80,80,80) solid;
+	padding: 4px;
+	text-align: left;
+	color: rgb(40,40,40);
 }
