@@ -1,78 +1,36 @@
-// Use the Singleton pattern
-// to make sure that only one Client object exists
-var Client;
+// On demande le pseudo de l'utilisateur
+var pseudo = prompt('Votre pseudo ?') || 'Utilisateur';
 
-(function () {
-  var instance;
-  Client = function Client() {
-    if (instance) {
-      return instance;
-    }
-
-    // Set the instance variable and return it onwards
-    instance = this;
-
-    // Connect websocket to Server
-    this.connect();
-    console.log("Client started");
-  };
-}());
-
-Client.prototype.connect = function() {
-  var connString = config.protocol + config.domain + ':' + config.clientport;
-
-  console.log("Websocket connection string:", connString, config.wsclientopts);
-
-  var self = this;
-
-  this.socket = io.connect(connString, config.wsclientopts);
-
-  // Handle error event
-  this.socket.on('error', function (err) {  
-    console.log("Websocket 'error' event:", err);
+// On se connecte au serveur
+var socket = io.connect();
+  
+  // On creer l'evenement recupererMessages pour recuperer direcement les messages sur serveur
+  socket.on('recupererMessages', function (messages) {
+	// messages est le tableau contenant tous les messages qui ont ete ecris sur le serveur
+	var html = '';
+	for (var i = 0; i < messages.length; i++)
+		html += '<div class="line"><b>'+messages[i].pseudo+'</b> : '+messages[i].message+'</div>';
+	document.getElementById('tchat').innerHTML = html;
+});
+  
+  // Si quelqu'un a poste un message, le serveur nous envoie son message avec l'evenement recupererNouveauMessage
+  socket.on('recupererNouveauMessage', function (message) {
+  	document.getElementById('tchat').innerHTML += '<div class="line"><b>'+message.pseudo+'</b> : '+message.message+'</div>';
   });
-
-  // Handle connection event
-  this.socket.on('connect', function () { 
-    console.log("Websocket 'connected' event with params:", self.socket);
-    document.getElementById('top').innerHTML = "Connected.";
-  });
-
-  // Handle disconnect event
-  this.socket.on('disconnect', function () {
-    console.log("Websocket 'disconnect' event");
-    document.getElementById('top').innerHTML = "Disconnected.";
-  });
-
-// OWN EVENTS GO HERE...
-
-  // Listen for server hello event
-  this.socket.on('hello', function (data) {
-    console.log("Server says:", data.greeting);
-
-    // Start heartbeat timer
-    self.heartbeat(self); 
-  });
-
-  // pong to our ping
-  this.socket.on('pong', function (data) {
-    if(data.id == self.pingtime) {
-      document.getElementById('ping').innerHTML = Date.now() - self.pingtime + " ms";
-    }
-    else {
-      console.log("pong failed:", data.id, self.pingtime);
-    }
-  });
-
-};
-
-// Keep pinging and ponging with server
-Client.prototype.heartbeat = function (self) {
-
-  // Create heartbeat timer,
-  // the third param 'self' is not supported in IE9 and earlier 
-  var tmo = setTimeout(self.heartbeat, config.heartbeattmo, self); 
-
-  self.pingtime = Date.now();
-  self.socket.emit('ping', {id: self.pingtime});
-};
+  // Quand on veut envoyer un message (quand il a valider le formulaire)
+  function envoiMessage(mess) {
+	// On recupere le message
+	var message = document.getElementById('message').value;
+	
+	// On appelle l'evenement se trouvant sur le serveur pour qu'il enregistre le message et qu'il l'envoie a tous les autres clients connectes (sauf nous)
+	socket.emit('nouveauMessage', { 'pseudo' : pseudo, 'message' : message });
+	
+	// On affiche directement notre message dans notre page
+	document.getElementById('tchat').innerHTML += '<div class="line"><b>'+pseudo+'</b> : '+message+'</div>';
+	
+	// On vide le formulaire
+	document.getElementById('message').value = '';
+	
+	// On retourne false pour pas que le formulaire n'actualise pas la page
+	return false;
+}
