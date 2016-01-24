@@ -2,24 +2,29 @@ body {
 	background-color : #bdc3c7;
 	text-align: center;
 	font-family: 'Work Sans';
+	overflow: hidden;
 }
 
 h1 {
 	color: #2980b9;
 }
 
-#tchat {
-	background-color: white;
-	opacity: 0.8;
-	width: 500px;
-	height: 300px;
-	margin: auto;
-	border: 3px rgb(40,40,40) solid;
-	overflow: auto;
+input, textarea {
+	margin: 5px;
+  	padding: 5px;
+  	border: solid 1px #7f8c8d;
+  	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
 }
-.line {
-	border-bottom: 1px rgb(80,80,80) solid;
-	padding: 4px;
-	text-align: left;
-	color: rgb(40,40,40);
+
+input:focus, textarea:focus{
+  	border: solid 1px #34495e;
+  	box-shadow: 0 0 5px 1px #2980b9;
+  	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+#logo {
+	width: 50%;
+	margin-top: 10px;
 }

@@ -1,6 +1,3 @@
-// On demande le pseudo de l'utilisateur
-var pseudo = prompt('Votre pseudo ?') || 'Utilisateur';
-
 var currentUrl = window.location.href;
 var nodeJsServerUrl;
 
@@ -10,6 +7,8 @@ else
 	nodeJsServerUrl = "http://partymanagerserver-graphmaxer.rhcloud.com:8000";
 
 var socket = io.connect(nodeJsServerUrl);
+
+
 
 // On creer l'evenement recupererMessages pour recuperer direcement les messages sur serveur  	
 socket.on('recupererMessages', function (messages) {

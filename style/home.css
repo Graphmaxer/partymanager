@@ -1,0 +1,63 @@
+#home {
+    position: absolute;
+  	margin: auto;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	margin: auto;
+    width: 680px;
+    height: 305px;
+    -webkit-transition: ease all 0.5s;
+	transition: ease all 0.5s;
+}
+
+.homeHided {
+	left: -3000px!important;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	visibility: hidden;
+	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+}
+
+.homeButton {
+	height: 200px;
+	font-size: 30px;
+	line-height: 200px;
+	background-color: #3498db;
+	display: inline-block;
+	color: #ecf0f1;
+	border-radius: 15px;
+	border: solid 3px #3498db;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.homeButton span {
+	width: 300px;
+	vertical-align: middle;
+	display: inline-block;
+  	line-height: normal; 
+}
+
+.homeButton:hover {
+	background-color: #2980b9;
+	cursor: pointer;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.homeButton:active {
+	background-color: #34495e;
+	-webkit-transition: ease all 0.1s;
+	transition: ease all 0.1s;
+}
+
+#homeOr {
+	display: inline-block;
+	color: #2c3e50;
+	font-size: 25px;
+	font-weight: 700;
+	margin: 10px;
+}
