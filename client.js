@@ -1,10 +1,16 @@
 // On demande le pseudo de l'utilisateur
 var pseudo = prompt('Votre pseudo ?') || 'Utilisateur';
 
-// On se connecte au serveur
-// var socket = io.connect("http://partymanagerserver-graphmaxer.rhcloud.com:8000");
-var socket = io.connect("http://127.0.0.1:8080/");
-  
+var currentUrl = window.location.href;
+var nodeJsServerUrl;
+
+if (currentUrl == "http://localhost:8080/partymanager/")
+	nodeJsServerUrl = "http://127.0.0.1:8000/";
+else
+	nodeJsServerUrl = "http://partymanagerserver-graphmaxer.rhcloud.com:8000";
+
+var socket = io.connect(nodeJsServerUrl);
+
 // On creer l'evenement recupererMessages pour recuperer direcement les messages sur serveur  	
 socket.on('recupererMessages', function (messages) {
 	// messages est le tableau contenant tous les messages qui ont ete ecris sur le serveur
@@ -13,7 +19,7 @@ socket.on('recupererMessages', function (messages) {
 		html += '<div class="line"><b>'+messages[i].pseudo+'</b> : '+messages[i].message+'</div>';
 	document.getElementById('tchat').innerHTML = html;
 });
-  
+
 // Si quelqu'un a poste un message, le serveur nous envoie son message avec l'evenement recupererNouveauMessage
 socket.on('recupererNouveauMessage', function (message) {
 	document.getElementById('tchat').innerHTML += '<div class="line"><b>'+message.pseudo+'</b> : '+message.message+'</div>';
