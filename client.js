@@ -2,7 +2,8 @@
 var pseudo = prompt('Votre pseudo ?') || 'Utilisateur';
 
 // On se connecte au serveur
-var socket = io.connect("http://partymanagerserver-graphmaxer.rhcloud.com:8000");
+// var socket = io.connect("http://partymanagerserver-graphmaxer.rhcloud.com:8000");
+var socket = io.connect("http://127.0.0.1:8080/");
   
 // On creer l'evenement recupererMessages pour recuperer direcement les messages sur serveur  	
 socket.on('recupererMessages', function (messages) {

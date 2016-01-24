@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
+	<img src="img/PartyManagerLogo.png"/>
 	<h1>Tchat avec Socket.IO</h1>
 	<div id="tchat"></div>
 	<form onsubmit="return (envoiMessage());">
