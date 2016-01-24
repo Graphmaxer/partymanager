@@ -1,6 +1,6 @@
 <div id="loungeCreation" class="loungeCreationHided">
 	<h1>Création d'un salon</h1>
-	<form>
+	<form onsubmit="return(false)">
 		<div class="loungeCreationField">
 			<label for="loungeName">Nom du salon : </label>
 			<input type="text" id="loungeName" required/>
