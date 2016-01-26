@@ -9,6 +9,9 @@ $("#loungeCreationBack").click(function() {
 });
 
 
+
+
+
 $("#joinLoungeButton").click(function() {
 	$("#home").addClass("homeHided");
 	$("#joinLounge").removeClass("joinLoungeHided");

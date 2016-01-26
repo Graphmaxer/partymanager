@@ -28,3 +28,34 @@ input:focus, textarea:focus{
 	width: 50%;
 	margin-top: 10px;
 }
+
+#errorBox {
+	position: absolute;
+	background-color: #e74c3c;
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 40%;
+	margin: auto;
+	border-radius: 0px 0px 10px 10px;
+	border-left: solid 2px #c0392b;
+	border-right: solid 2px #c0392b;
+	border-bottom: solid 2px #c0392b;
+	-webkit-transition: ease all 0.5s;
+	transition: ease all 0.5s;
+}
+
+.errorBoxHided {
+	top: -100px!important;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	visibility: hidden;
+	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+}
+
+.errorMessage {
+	margin: 5px;
+	color: #ecf0f1;
+	font-size: 20px;
+}

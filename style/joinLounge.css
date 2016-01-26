@@ -6,7 +6,7 @@
   	bottom: 0;
   	left: 0;
 	margin: auto;
-    width: 500px;
+    width: 90%;
     height: 425px;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
@@ -34,4 +34,40 @@
 	cursor: pointer;
 	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
+}
+
+.loungeListItem {
+	height: 25px;
+	font-size: 20px;
+	line-height: 25px;
+	background-color: #3498db;
+	display: inline-block;	
+	border-radius: 15px;
+	border: solid 3px #3498db;
+	padding: 10px;
+	margin: 5px;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.loungeListItem:hover {
+	background-color: #2980b9;
+	cursor: pointer;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.loungeListItem:active {
+	background-color: #34495e;
+	-webkit-transition: ease all 0.1s;
+	transition: ease all 0.1s;
+}
+
+.loungeListName {
+	font-weight: 700;
+	color: #2c3e50;
+}
+
+.loungeListDescription {
+	color: #ecf0f1;
 }

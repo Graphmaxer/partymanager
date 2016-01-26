@@ -14,6 +14,8 @@
 <body>
 	<img id="logo" src="img/PartyManagerLogo.png" alt="PartyManager Logo"/><br/>
 
+	<div id="errorBox" class="errorBoxHided"></div>
+
 	<?php require_once("require/home.php"); ?>
 
 	<?php require_once("require/loungeCreation.php"); ?>

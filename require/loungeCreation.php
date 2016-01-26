@@ -12,8 +12,8 @@
 		</div>
 
 		<div class="loungeCreationField">
-			<label for="loungeDescription">Description du salon (optionnelle) :</label><br/>
-			<textarea id="loungeDescription"></textarea>
+			<label for="loungeDescription">Courte description du salon (optionnelle) :</label><br/>
+			<input type="text" id="loungeDescription"></input>
 		</div>
 
 		<button id="loungeCreationButton" type="submit">Créer le salon</button>
