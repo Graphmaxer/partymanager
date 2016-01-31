@@ -17,14 +17,17 @@ socket.on("errorMessage", function (errorMessage) {
 
 	setTimeout(function() {
   		$("#errorBox").addClass("errorBoxHided");
-	}, 5000);
+	}, 4000);
 
 	setTimeout(function() {
   		$("#errorBox").children("div:first").remove();
-	}, 5500);
+	}, 4500);
 });
 
 
+/////////////////////
+// LOUNGE CREATION //
+/////////////////////
 
 $("#loungeCreationButton").click(function() {
 	var loungeName = $("#loungeCreationName").val();
@@ -33,6 +36,11 @@ $("#loungeCreationButton").click(function() {
 	
 	socket.emit("newLounge", { "loungeName" : loungeName, "loungePassword" : loungePassword,  "loungeDescription" : loungeDescription});
 });
+
+
+////////////////////
+// LOUNGE LISTING //
+////////////////////
 
 socket.on("retrieveLounges", function (lounges) {
 	if (lounges.length === 0)
@@ -53,4 +61,8 @@ socket.on("retrieveLounges", function (lounges) {
 
 socket.on("retrieveNewLounge", function (lounge) {
 	$("#loungeList").append("<div class='loungeListItem'><span class='loungeListName'>" + lounge.loungeName + " : </span><span class='loungeListDescription'>" + lounge.loungeDescription + "</span></div>");
+
+	$("#loungeCreation").addClass("loungeCreationHidedBottom");
+	$("#loungeHosting").removeClass("loungeHostingHided");
+	$("#logo").addClass("logoReduced");
 });

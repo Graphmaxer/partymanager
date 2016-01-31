@@ -1,6 +1,5 @@
 #loungeCreation {
 	position: absolute;
-  	margin: auto;
   	top: 0;
   	right: 0;
   	bottom: 0;
@@ -14,6 +13,15 @@
 
 .loungeCreationHided {
 	right: -3000px!important;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	visibility: hidden;
+	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+}
+
+.loungeCreationHidedBottom {
+	bottom: -3000px!important;
 	opacity: 0;
 	filter:alpha(opacity=0);
 	visibility: hidden;
