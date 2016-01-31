@@ -8,6 +8,10 @@ else
 
 var socket = io.connect(nodeJsServerUrl);
 
+///////////////////
+// ERROR HANDLER //
+///////////////////
+
 socket.on("errorMessage", function (errorMessage) {
 	$("#errorBox").append("<div class='errorMessage'>Erreur : " + errorMessage + "</div>").removeClass("errorBoxHided");
 
@@ -20,18 +24,12 @@ socket.on("errorMessage", function (errorMessage) {
 	}, 5500);
 });
 
-$("#loungeCreationButton").click(function() {
-	var loungeName = $("#loungeName").val();
-	var loungePassword = $("#loungePassword").val();
-	var loungeDescription;
 
-	if ($("#loungeDescription").val()) {
-		loungeDescription = $("#loungeDescription").val();
-	}
-	else
-	{
-		loungeDescription = "Pas de description";
-	}
+
+$("#loungeCreationButton").click(function() {
+	var loungeName = $("#loungeCreationName").val();
+	var loungePassword = $("#loungeCreationPassword").val();
+	var loungeDescription = $("#loungeCreationDescription").val();
 	
 	socket.emit("newLounge", { "loungeName" : loungeName, "loungePassword" : loungePassword,  "loungeDescription" : loungeDescription});
 });
