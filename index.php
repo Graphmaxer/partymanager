@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style/loungeCreation.css"/>
 	<link rel="stylesheet" type="text/css" href="style/loungeHosting.css"/>
 	<link rel="stylesheet" type="text/css" href="style/joinLounge.css"/>
+	<link rel="stylesheet" type="text/css" href="style/loungeVoting.css"/>
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,700' rel='stylesheet' type='text/css'/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.3.js"></script>	
@@ -23,11 +24,12 @@
 
 	require_once("require/joinLounge.php");
 
-	require_once("require/loungeHosting.php"); ?>
+	require_once("require/loungeHosting.php");
 
-
+	require_once("require/loungeVoting.php"); ?>
 
 	<script type="text/javascript" src="js/client.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/search.js"></script>
 </body>
 </html>

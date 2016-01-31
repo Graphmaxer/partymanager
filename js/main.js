@@ -4,6 +4,12 @@ $("#goToLoungeHostingTEMP").click(function() {
 	$("#logo").addClass("logoReduced");
 });
 
+$("#goToLoungeVotingTEMP").click(function() {
+	$("#home").addClass("homeHided");
+	$("#loungeVoting").removeClass("loungeVotingHided");
+	$("#logo").addClass("logoReduced");
+});
+
 //////////
 // HOME //
 //////////
