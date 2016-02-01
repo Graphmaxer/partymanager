@@ -3,6 +3,8 @@ var nodeJsServerUrl;
 
 if (currentUrl == "http://localhost:8080/partymanager/")
 	nodeJsServerUrl = "http://127.0.0.1:8000/";
+else if (currentUrl == "https://partymanager-graphmaxer.c9users.io/index.php")
+	nodeJsServerUrl = "https://partymanager-server-graphmaxer-1.c9users.io:8080";
 else
 	nodeJsServerUrl = "http://partymanagerserver-graphmaxer.rhcloud.com:8000";
 
