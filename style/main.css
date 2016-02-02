@@ -1,3 +1,8 @@
+@viewport { 
+    width: device-width; 
+    zoom: 1; 
+}
+
 body {
 	background-color : #bdc3c7;
 	text-align: center;
@@ -66,5 +71,5 @@ input:focus, textarea:focus{
 .errorMessage {
 	margin: 5px;
 	color: #ecf0f1;
-	font-size: 20px;
+	font-size: 1.250em;
 }

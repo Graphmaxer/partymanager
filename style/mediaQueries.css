@@ -1,0 +1,26 @@
+@media screen and (max-width: 980px) {
+	h1 {
+		margin-bottom: 0px!important;
+	}
+	#logo {
+		width: 100%!important;
+		margin-top: 0px!important;
+	}
+
+	#home {
+		top: 250px!important;
+		height: 100%!important;
+	}
+
+	.homeButton {
+		display: block!important;
+		height: 150px!important;
+		line-height: 150px!important;
+		width: 75%;
+		margin: auto;
+	}
+
+	.homeButton span {
+		width: 70%!important;
+	}
+}
