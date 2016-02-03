@@ -2,6 +2,7 @@ $("#goToLoungeHostingTEMP").click(function() {
 	$("#home").addClass("homeHided");
 	$("#loungeHosting").removeClass("loungeHostingHided");
 	$("#logo").addClass("logoReduced");
+	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
 });
 
 $("#goToLoungeVotingTEMP").click(function() {

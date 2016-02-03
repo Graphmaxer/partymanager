@@ -18,11 +18,11 @@ socket.on("errorMessage", function (errorMessage) {
 	$("#errorBox").append("<div class='errorMessage'>Erreur : " + errorMessage + "</div>").removeClass("errorBoxHided");
 
 	setTimeout(function() {
-  		$("#errorBox").addClass("errorBoxHided");
+		$("#errorBox").addClass("errorBoxHided");
 	}, 4000);
 
 	setTimeout(function() {
-  		$("#errorBox").children("div:first").remove();
+		$("#errorBox").children("div:first").remove();
 	}, 4500);
 });
 
@@ -53,7 +53,7 @@ socket.on("openLounge", function (lounge) {
 socket.on("retrieveLounges", function (lounges) {
 	if (lounges.length === 0)
 	{
-    	loungeList = "Pas de salon";
+		loungeList = "Pas de salon";
 	}
 	else
 	{
@@ -69,4 +69,31 @@ socket.on("retrieveLounges", function (lounges) {
 
 socket.on("retrieveNewLounge", function (lounge) {
 	$("#loungeList").append("<div class='loungeListItem'><span class='loungeListName'>" + lounge.loungeName + " : </span><span class='loungeListDescription'>" + lounge.loungeDescription + "</span></div>");
+});
+
+
+///////////
+// TCHAT //
+///////////
+
+$("#tchatSendButton").click(function() {
+	var messageAuthor = $("#tchatInputAuthor").val();
+	var messageContent = $("#tchatInputMessage").val();
+	
+	socket.emit("newMessage", { "messageAuthor" : messageAuthor, "messageContent" : messageContent});
+	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
+});
+
+socket.on("retrieveMessages", function (messages) {
+	var messageList = "";
+	for (var i = 0; i < messages.length; i++)
+	{
+		messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
+	}
+
+	$("#tchat").html(messageList);
+});
+
+socket.on("retrieveNewMessage", function (message) {
+	$("#tchat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
 });
