@@ -3,8 +3,8 @@ var nodeJsServerUrl;
 
 if (currentUrl == "http://localhost:8080/partymanager/")
 	nodeJsServerUrl = "http://127.0.0.1:8000/";
-else if (currentUrl == "https://partymanager-graphmaxer.c9users.io/index.php")
-	nodeJsServerUrl = "https://partymanager-server-graphmaxer-1.c9users.io:8080";
+else if (currentUrl == "http://partymanager-graphmaxer.c9users.io/")
+	nodeJsServerUrl = "http://partymanager-server-graphmaxer.c9users.io:8080";
 else
 	nodeJsServerUrl = "http://partymanagerserver-graphmaxer.rhcloud.com:8000";
 
@@ -39,6 +39,12 @@ $("#loungeCreationButton").click(function() {
 	socket.emit("newLounge", { "loungeName" : loungeName, "loungePassword" : loungePassword,  "loungeDescription" : loungeDescription});
 });
 
+socket.on("openLounge", function (lounge) {
+	$("#loungeCreation").addClass("loungeCreationHidedBottom");
+	$("#loungeHosting").removeClass("loungeHostingHided");
+	$("#logo").addClass("logoReduced");
+});
+
 
 ////////////////////
 // LOUNGE LISTING //
@@ -63,8 +69,4 @@ socket.on("retrieveLounges", function (lounges) {
 
 socket.on("retrieveNewLounge", function (lounge) {
 	$("#loungeList").append("<div class='loungeListItem'><span class='loungeListName'>" + lounge.loungeName + " : </span><span class='loungeListDescription'>" + lounge.loungeDescription + "</span></div>");
-
-	$("#loungeCreation").addClass("loungeCreationHidedBottom");
-	$("#loungeHosting").removeClass("loungeHostingHided");
-	$("#logo").addClass("logoReduced");
 });

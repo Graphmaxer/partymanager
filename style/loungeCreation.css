@@ -5,7 +5,7 @@
   	bottom: 0;
   	left: 0;
 	margin: auto;
-    height: 400px;
+    height: 50%;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }

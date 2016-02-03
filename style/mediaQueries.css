@@ -3,11 +3,12 @@
 		margin-bottom: 0px!important;
 	}
 	#logo {
-		width: 100%!important;
+		width: auto!important;
+		height: 20vh;
 		margin-top: 0px!important;
 	}
 
-	#home {
+	#home, #loungeCreation, #joinLounge {
 		top: 250px!important;
 		height: 100%!important;
 	}
@@ -22,5 +23,13 @@
 
 	.homeButton span {
 		width: 70%!important;
+	}
+}
+
+@media screen and (max-height: 650px) {
+	#logo {
+		width: auto!important;
+		height: 20vh;
+		margin-top: 0px!important;
 	}
 }
