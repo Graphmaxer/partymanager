@@ -1,11 +1,15 @@
 var currentUrl = window.location.href;
 var nodeJsServerUrl;
 
-if (currentUrl == "http://localhost:8080/partymanager/")
+var localhostRegex = new RegExp("^(http|https)(:\/\/)(localhost)(:[0-9]*)?(\/partymanager)(.*)$");
+var cloud9Regex = new RegExp("^(http|https)(:\/\/)(partymanager)(-|\.)(graphmaxer\.c9users\.io)(.*)$");
+var openShiftRegex = new RegExp("^(http|https)(:\/\/)(partymanager-graphmaxer\.rhcloud\.com)(.*)$");
+
+if (localhostRegex.test(currentUrl))
 	nodeJsServerUrl = "http://127.0.0.1:8000/";
-else if (currentUrl == "http://partymanager-graphmaxer.c9users.io/")
+else if (cloud9Regex.test(currentUrl))
 	nodeJsServerUrl = "http://partymanager-server-graphmaxer.c9users.io:8080";
-else
+else if (openShiftRegex.test(currentUrl))
 	nodeJsServerUrl = "http://partymanagerserver-graphmaxer.rhcloud.com:8000";
 
 var socket = io.connect(nodeJsServerUrl);
