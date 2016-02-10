@@ -85,7 +85,7 @@ $("#tchatSendButton").click(function() {
 	var messageContent = $("#tchatInputMessage").val();
 	
 	socket.emit("newMessage", { "messageAuthor" : messageAuthor, "messageContent" : messageContent});
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
+	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 300);
 });
 
 socket.on("retrieveMessages", function (messages) {

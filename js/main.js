@@ -11,6 +11,7 @@ $("#goToLoungeVotingTEMP").click(function() {
 	$("#logo").addClass("logoReduced");
 });
 
+
 //////////
 // HOME //
 //////////
