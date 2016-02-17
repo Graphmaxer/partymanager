@@ -76,6 +76,13 @@ socket.on("retrieveNewLounge", function (lounge) {
 });
 
 
+/////////////////
+// OPEN LOUNGE //
+/////////////////
+
+
+
+
 ///////////
 // TCHAT //
 ///////////
@@ -86,6 +93,7 @@ $("#tchatSendButton").click(function() {
 	
 	socket.emit("newMessage", { "messageAuthor" : messageAuthor, "messageContent" : messageContent});
 	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 300);
+	$("#tchatInputMessage").val("");
 });
 
 socket.on("retrieveMessages", function (messages) {
@@ -100,4 +108,5 @@ socket.on("retrieveMessages", function (messages) {
 
 socket.on("retrieveNewMessage", function (message) {
 	$("#tchat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 300);
 });
