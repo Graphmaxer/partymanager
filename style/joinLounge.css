@@ -1,13 +1,12 @@
 #joinLounge {
 	position: absolute;
-  	margin: auto;
   	top: 0;
   	right: 0;
   	bottom: 0;
   	left: 0;
 	margin: auto;
     width: 90%;
-    height: 425px;
+    height: 50%;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }
@@ -38,7 +37,7 @@
 
 .loungeListItem {
 	height: 25px;
-	font-size: 20px;
+	font-size: 1.250em;
 	line-height: 25px;
 	background-color: #3498db;
 	display: inline-block;	

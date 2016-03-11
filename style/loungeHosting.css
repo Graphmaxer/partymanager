@@ -1,17 +1,15 @@
-#home {
+#loungeHosting {
     position: absolute;
-  	top: 0;
+  	top: 110px;
   	right: 0;
-  	bottom: 0;
   	left: 0;
 	margin: auto;
-    height: 305px;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }
 
-.homeHided {
-	left: -3000px!important;
+.loungeHostingHided {
+	top: -3000px!important;
 	opacity: 0;
 	filter:alpha(opacity=0);
 	visibility: hidden;
@@ -19,10 +17,45 @@
 	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 }
 
-.homeButton {
-	height: 200px;
-	font-size: 1.875em;
-	line-height: 200px;
+#tchatBox h2 {
+	color: #354b60;
+}
+
+#tchat {
+	overflow-y: scroll;
+	height: 40vh;
+	width: 25vw;
+	margin: auto;
+	background-color: #7f8c8d;
+}
+
+.message {
+	padding: 2px;
+	border-bottom: solid 1px #95a5a6;
+}
+
+.messageAuthor {
+	font-weight: 700;
+	color: #354b60;
+}
+
+.messageContent {
+	color: #ecf0f1;
+}
+
+#tchatInputAuthor {
+	width: 100px;
+}
+
+#tchatInputMessage {
+	width: 200px;
+}
+
+#tchatSendButton {
+	height: 50px;
+	font-size: 1.4em;
+	line-height: 50px;
+	width: 125px;
 	background-color: #3498db;
 	display: inline-block;
 	color: #ecf0f1;
@@ -32,30 +65,19 @@
 	transition: ease all 0.3s;
 }
 
-.homeButton span {
-	width: 300px;
-	vertical-align: middle;
-	display: inline-block;
-  	line-height: normal; 
-}
-
-.homeButton:hover {
+#tchatSendButton:hover {
 	background-color: #2980b9;
 	cursor: pointer;
 	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
 }
 
-.homeButton:active {
+#tchatSendButton:active {
 	background-color: #34495e;
 	-webkit-transition: ease all 0.1s;
 	transition: ease all 0.1s;
 }
 
-#homeOr {
-	display: inline-block;
-	color: #2c3e50;
-	font-size: 1.5em;
-	font-weight: 700;
-	margin: 10px;
+#tchatSendButton:focus {
+	outline: 0;
 }

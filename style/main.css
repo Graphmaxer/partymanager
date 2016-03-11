@@ -1,3 +1,8 @@
+@viewport { 
+    width: device-width; 
+    zoom: 1;
+}
+
 body {
 	background-color : #bdc3c7;
 	text-align: center;
@@ -27,6 +32,14 @@ input:focus, textarea:focus{
 #logo {
 	width: 50%;
 	margin-top: 10px;
+	-webkit-transition: ease all 0.5s;
+	transition: ease all 0.5s;
+}
+
+.logoReduced {
+	width: 400px!important;
+	-webkit-transition: ease all 0.5s;
+	transition: ease all 0.5s;
 }
 
 #errorBox {
@@ -37,10 +50,11 @@ input:focus, textarea:focus{
 	top: 0;
 	width: 40%;
 	margin: auto;
+	z-index: 99;
 	border-radius: 0px 0px 10px 10px;
-	border-left: solid 2px #c0392b;
-	border-right: solid 2px #c0392b;
-	border-bottom: solid 2px #c0392b;
+	border-left: solid 1px #c0392b;
+	border-right: solid 1px #c0392b;
+	border-bottom: solid 1px #c0392b;
 	-webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }
@@ -57,5 +71,5 @@ input:focus, textarea:focus{
 .errorMessage {
 	margin: 5px;
 	color: #ecf0f1;
-	font-size: 20px;
+	font-size: 1.250em;
 }
