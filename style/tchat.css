@@ -1,0 +1,64 @@
+.tchatBox h2 {
+	color: #354b60;
+}
+
+.tchat {
+	overflow-y: scroll;
+	height: 40vh;
+	width: 25vw;
+	margin: auto;
+	background-color: #7f8c8d;
+}
+
+.message {
+	padding: 2px;
+	border-bottom: solid 1px #95a5a6;
+}
+
+.messageAuthor {
+	font-weight: 700;
+	color: #354b60;
+}
+
+.messageContent {
+	color: #ecf0f1;
+}
+
+.tchatInputAuthor {
+	width: 100px;
+}
+
+.tchatInputMessage {
+	width: 200px;
+}
+
+.tchatSendButton {
+	height: 50px;
+	font-size: 1.4em;
+	line-height: 50px;
+	width: 125px;
+	background-color: #3498db;
+	display: inline-block;
+	color: #ecf0f1;
+	border-radius: 15px;
+	border: solid 3px #3498db;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.tchatSendButton:hover {
+	background-color: #2980b9;
+	cursor: pointer;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+.tchatSendButton:active {
+	background-color: #34495e;
+	-webkit-transition: ease all 0.1s;
+	transition: ease all 0.1s;
+}
+
+.tchatSendButton:focus {
+	outline: 0;
+}

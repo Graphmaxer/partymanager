@@ -7,3 +7,8 @@
 
 	<div id="joinLoungeBack">Retour</div>
 </div>
+
+<div id="passwordPopup" class="passwordPopupHided">
+	<label for="loungeName">Mot de passe : </label>
+	<input type="password" id="loungeCreationName" required/>
+</div>

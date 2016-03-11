@@ -46,15 +46,3 @@ $("#joinLoungeBack").click(function() {
 	$("#home").removeClass("homeHided");
 	$("#joinLounge").addClass("joinLoungeHided");
 });
-
-
-/////////////////
-// OPEN LOUNGE //
-/////////////////
-
-$(".listLoungeItem").click(function() {
-	$("#joinLounge").addClass("joinLoungeHided");
-	$("#loungeVoting").removeClass("loungeVotingHided");
-	$("#logo").addClass("logoReduced");
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
-});

@@ -5,7 +5,7 @@
 
 	$search = $_POST["searchInput"];
 
-	$jsonVideos = file_get_contents("https://www.googleapis.com/youtube/v3/search?key=".$apiKey."&part=snippet&q=".$search."&maxResults=10&pageToken=".$pageToken);
+	$jsonVideos = file_get_contents("https://www.googleapis.com/youtube/v3/search?key=".$apiKey."&part=snippet&type=video&videoCategoryId=10&q=".$search."&maxResults=10&pageToken=".$pageToken);
 
 	$decodedJsonVideos = json_decode($jsonVideos);
 

@@ -40,15 +40,8 @@ $("#loungeCreationButton").click(function() {
 	var loungePassword = $("#loungeCreationPassword").val();
 	var loungeDescription = $("#loungeCreationDescription").val();
 	
-	socket.emit("newLounge", { "loungeName" : loungeName, "loungePassword" : loungePassword,  "loungeDescription" : loungeDescription});
+	socket.emit("newLounge", {"loungeName" : loungeName, "loungePassword" : loungePassword,  "loungeDescription" : loungeDescription});
 });
-
-socket.on("openLounge", function (lounge) {
-	$("#loungeCreation").addClass("loungeCreationHidedBottom");
-	$("#loungeHosting").removeClass("loungeHostingHided");
-	$("#logo").addClass("logoReduced");
-});
-
 
 ////////////////////
 // LOUNGE LISTING //
@@ -81,19 +74,33 @@ socket.on("retrieveNewLounge", function (lounge) {
 /////////////////
 
 
+$("#loungeList").on("click", ".loungeListItem", function() {
+	$("#passwordPopup").removeClass("passwordPopupHided");
+});
+
+$("#loungeList").click(function() {
+	socket.emit("openLoungeRequest", {"loungeName" : $(this).find(":first-child").text().slice(0, -2)} );
+
+	socket.on("loungeOpened", function (loungeInfo) {
+		$("#joinLounge").addClass("joinLoungeHided");
+		$("#loungeVoting").removeClass("loungeVotingHided");
+		$("#logo").addClass("logoReduced");
+		$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
+	});
+});
 
 
 ///////////
 // TCHAT //
 ///////////
 
-$("#tchatSendButton").click(function() {
-	var messageAuthor = $("#tchatInputAuthor").val();
-	var messageContent = $("#tchatInputMessage").val();
+$(".tchatSendButton").click(function() {
+	var messageAuthor = $(".tchatInputAuthor").val();
+	var messageContent = $(".tchatInputMessage").val();
 	
 	socket.emit("newMessage", { "messageAuthor" : messageAuthor, "messageContent" : messageContent});
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 300);
-	$("#tchatInputMessage").val("");
+	$(".tchat").animate({ scrollTop: $(".tchat").prop("scrollHeight")}, 300);
+	$(".tchatInputMessage").val("");
 });
 
 socket.on("retrieveMessages", function (messages) {
@@ -103,10 +110,10 @@ socket.on("retrieveMessages", function (messages) {
 		messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
 	}
 
-	$("#tchat").html(messageList);
+	$(".tchat").html(messageList);
 });
 
 socket.on("retrieveNewMessage", function (message) {
-	$("#tchat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 300);
+	$(".tchat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+	$(".tchat").animate({ scrollTop: $(".tchat").prop("scrollHeight")}, 300);
 });

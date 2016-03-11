@@ -70,3 +70,30 @@
 .loungeListDescription {
 	color: #ecf0f1;
 }
+
+#passwordPopup {
+	position: absolute;
+	background-color: #34495e;
+	color: #ecf0f1;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	height: 35px;
+	width: 30%;
+	margin: auto;
+	z-index: 2;
+	border-radius: 10px;
+	box-shadow: #34495e 2px 2px 2px;
+	-webkit-transition: ease all 0.5s;
+	transition: ease all 0.5s;
+}
+
+.passwordPopupHided {
+	top: -100px!important;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	visibility: hidden;
+	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+}
