@@ -1,5 +1,6 @@
 <div id="loungeHosting" class="loungeHostingHided">
 	<h1>LOUNGE HOSTING</h1>
+	<div>TEST</div>
 
 	<div id="tchatBox">
 		<h2>Tchat</h2>
