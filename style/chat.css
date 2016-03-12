@@ -1,8 +1,8 @@
-.tchatBox h2 {
+.chatBox h2 {
 	color: #354b60;
 }
 
-.tchat {
+.chat {
 	overflow-y: scroll;
 	height: 40vh;
 	width: 25vw;
@@ -24,15 +24,15 @@
 	color: #ecf0f1;
 }
 
-.tchatInputAuthor {
+.chatInputAuthor {
 	width: 100px;
 }
 
-.tchatInputMessage {
+.chatInputMessage {
 	width: 200px;
 }
 
-.tchatSendButton {
+.chatSendButton {
 	height: 50px;
 	font-size: 1.4em;
 	line-height: 50px;
@@ -46,19 +46,19 @@
 	transition: ease all 0.3s;
 }
 
-.tchatSendButton:hover {
+.chatSendButton:hover {
 	background-color: #2980b9;
 	cursor: pointer;
 	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
 }
 
-.tchatSendButton:active {
+.chatSendButton:active {
 	background-color: #34495e;
 	-webkit-transition: ease all 0.1s;
 	transition: ease all 0.1s;
 }
 
-.tchatSendButton:focus {
+.chatSendButton:focus {
 	outline: 0;
 }
