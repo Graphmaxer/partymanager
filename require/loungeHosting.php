@@ -1,15 +1,15 @@
 <div id="loungeHosting" class="loungeHostingHided">
 	<h1>LOUNGE HOSTING</h1>
 
-	<div class="tchatBox">
+	<div class="chatBox">
 		<h2>Tchat</h2>
-		<div class="tchat">
+		<div class="chat">
 			
 		</div>
 		<form onsubmit="return(false)">
-			<input type="text" class="tchatInputAuthor" placeholder="Nom" required/>
-			<input type="text" class="tchatInputMessage" placeholder="Message" autocomplete="off"/><br/>
-			<button class="tchatSendButton" type="submit">Envoyer</button>
+			<input type="text" class="chatInputAuthor" placeholder="Nom" required/>
+			<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off"/><br/>
+			<button class="chatSendButton" type="submit">Envoyer</button>
 		</form>
 	</div>
 </div>

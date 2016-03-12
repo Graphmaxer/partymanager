@@ -90,17 +90,17 @@ $("#loungeList").click(function() {
 });
 
 
-///////////
-// TCHAT //
-///////////
+//////////
+// CHAT //
+//////////
 
-$(".tchatSendButton").click(function() {
-	var messageAuthor = $(".tchatInputAuthor").val();
-	var messageContent = $(".tchatInputMessage").val();
+$(".chatSendButton").click(function() {
+	var messageAuthor = $(".chatInputAuthor").val();
+	var messageContent = $(".chatInputMessage").val();
 	
 	socket.emit("newMessage", { "messageAuthor" : messageAuthor, "messageContent" : messageContent});
-	$(".tchat").animate({ scrollTop: $(".tchat").prop("scrollHeight")}, 300);
-	$(".tchatInputMessage").val("");
+	$(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight")}, 300);
+	$(".chatInputMessage").val("");
 });
 
 socket.on("retrieveMessages", function (messages) {
@@ -110,10 +110,10 @@ socket.on("retrieveMessages", function (messages) {
 		messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
 	}
 
-	$(".tchat").html(messageList);
+	$(".chat").html(messageList);
 });
 
 socket.on("retrieveNewMessage", function (message) {
-	$(".tchat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
-	$(".tchat").animate({ scrollTop: $(".tchat").prop("scrollHeight")}, 300);
+	$(".chat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+	$(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight")}, 300);
 });

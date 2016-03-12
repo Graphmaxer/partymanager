@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="style/loungeHosting.css"/>
 	<link rel="stylesheet" type="text/css" href="style/joinLounge.css"/>
 	<link rel="stylesheet" type="text/css" href="style/loungeVoting.css"/>
-	<link rel="stylesheet" type="text/css" href="style/tchat.css"/>
+	<link rel="stylesheet" type="text/css" href="style/chat.css"/>
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,700' rel='stylesheet' type='text/css'/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.3.js"></script>	
