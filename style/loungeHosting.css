@@ -16,3 +16,38 @@
 	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 }
+
+#loungeHostingSpeakerLeft {
+	display: inline-block;
+	width:14%;
+	height:50vh;
+	background-color:red;
+}
+#loungeHostingTrapezeLeft {
+    display: inline-block;
+    border-left: 100px solid #00F;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    height: 40vh;
+    width: 0px;
+}
+#loungeHostingScreen {
+	display: inline-block;
+	width:30%;
+	height:40vh;
+	background-color: white;
+}
+#loungeHostingTrapezeRight {
+	display: inline-block;
+    border-right: 100px solid #00F;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    height: 40vh;
+    width: 0px;
+}
+#loungeHostingSpeakerRight {
+	display: inline-block;
+	width:14%;
+	height:50vh;
+	background-color:red;
+}
