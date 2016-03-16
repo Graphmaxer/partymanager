@@ -9,6 +9,13 @@
 </div>
 
 <div id="passwordPopup" class="passwordPopupHided">
-	<label for="loungeName">Mot de passe : </label>
-	<input type="password" id="loungeCreationName" required/>
+	<form onsubmit="return(false)">
+		<div id="passwordPopupLoungeTitle">Rejoindre : <span id="passwordPopupLoungeName"></span></div>
+		<label for="passwordPopupLoungePassword">Mot de passe : </label>
+		<input type="password" id="passwordPopupLoungePassword" required/><br/>
+
+		<button id="passwordPopupLoungeButton" type="submit">Rejoindre</button>
+
+		<div id="passwordPopupLoungeBack">Annuler</div>
+	</form>
 </div>

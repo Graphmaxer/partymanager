@@ -79,10 +79,11 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
-	height: 35px;
-	width: 30%;
+	height: 115px;
+	width: 350px;
 	margin: auto;
 	z-index: 2;
+	padding: 5px;
 	border-radius: 10px;
 	box-shadow: #34495e 2px 2px 2px;
 	-webkit-transition: ease all 0.5s;
@@ -96,4 +97,55 @@
 	visibility: hidden;
 	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+}
+
+#passwordPopupLoungeTitle {
+	text-decoration: underline;
+}
+
+#passwordPopupLoungeButton {
+	height: 30px;
+	font-size: 1em;
+	line-height: 20px;
+	width: 200px;
+	margin-top: 4px;
+	background-color: #3498db;
+	display: inline-block;
+	color: #ecf0f1;
+	border-radius: 15px;
+	border: solid 3px #3498db;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+#passwordPopupLoungeButton:hover {
+	background-color: #2980b9;
+	cursor: pointer;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+#passwordPopupLoungeButton:active {
+	background-color: #34495e;
+	-webkit-transition: ease all 0.1s;
+	transition: ease all 0.1s;
+}
+
+#passwordPopupLoungeButton:focus {
+	outline: 0;
+}
+
+#passwordPopupLoungeBack {
+	margin-top: 9px;
+	font-size: 0.8em;
+	color: #bdc3c7;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
+}
+
+#passwordPopupLoungeBack:hover {
+	color: #7f8c8d;
+	cursor: pointer;
+	-webkit-transition: ease all 0.3s;
+	transition: ease all 0.3s;
 }

@@ -76,12 +76,25 @@ socket.on("retrieveNewLounge", function (lounge) {
 
 $("#loungeList").on("click", ".loungeListItem", function() {
 	$("#passwordPopup").removeClass("passwordPopupHided");
+	$("#passwordPopupLoungeName").html($(this).find(":first-child").text().slice(0, -2));
 });
 
-$("#loungeList").click(function() {
-	socket.emit("openLoungeRequest", {"loungeName" : $(this).find(":first-child").text().slice(0, -2)} );
+$("#passwordPopupLoungeBack").click(function() {
+	$("#passwordPopup").addClass("passwordPopupHided");
+	setTimeout(function() {
+		$("#passwordPopupLoungeName").html("");
+	}, 500);
+	
+});
+
+$("#passwordPopupLoungeButton").click(function() {
+	socket.emit("openLoungeRequest", {"loungeName" :  $("#passwordPopupLoungeName").text() , "loungePassword" : $("#passwordPopupLoungePassword").val() } );
 
 	socket.on("loungeOpened", function (loungeInfo) {
+		$("#passwordPopup").addClass("passwordPopupHided");
+	setTimeout(function() {
+		$("#passwordPopupLoungeName").html("");
+	}, 500);
 		$("#joinLounge").addClass("joinLoungeHided");
 		$("#loungeVoting").removeClass("loungeVotingHided");
 		$("#logo").addClass("logoReduced");
