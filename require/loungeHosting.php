@@ -1,19 +1,18 @@
 <div id="loungeHosting" class="loungeHostingHided">
 	<div id="loungeHostingMainBox">
-		<div id="loungeHostingSpeakerLeft">
-			<h2>SpeakerLeft</h2>
-		</div>
-		<div id="loungeHostingTrapezeLeft">
-			<h2>TrapezeLeft</h2>
+		<div class="loungeHostingSpeakerAndTrapeze">
+			<div class="loungeHostingSpeakers">
+			</div>
+			<div id="loungeHostingTrapezeLeft">
+			</div>
 		</div>
 		<div id="loungeHostingScreen">
-			<h2>Screen</h2>
 		</div>
-		<div id="loungeHostingTrapezeRight">
-			<h2>TrapezeRight</h2>
-		</div>
-		<div id="loungeHostingSpeakerRight">
-			<h2>SpeakerRight</h2>
+		<div class="loungeHostingSpeakerAndTrapeze">
+			<div id="loungeHostingTrapezeRight">
+			</div>
+			<div class="loungeHostingSpeakers">
+			</div>
 		</div>
 	</div>
 	<!--<div class="chatBox">

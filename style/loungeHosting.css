@@ -1,8 +1,9 @@
 #loungeHosting {
     position: absolute;
-  	top: 110px;
+  	top: 0;
   	right: 0;
   	left: 0;
+  	bottom: 0;
 	margin: auto;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
@@ -17,37 +18,38 @@
 	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 }
 
-#loungeHostingSpeakerLeft {
-	display: inline-block;
-	width:14%;
-	height:50vh;
+.loungeHostingSpeakers {
+	display:inline-block;
+	width:200px;
+	height:100px;
 	background-color:red;
+	top:0;
 }
 #loungeHostingTrapezeLeft {
-    display: inline-block;
-    border-left: 100px solid #00F;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    height: 40vh;
-    width: 0px;
+  	display: inline-block;
+	background-color:blue;
+    height: 282px;
+    width: 100px;
 }
 #loungeHostingScreen {
 	display: inline-block;
-	width:30%;
-	height:40vh;
+	width:502px;
+	height:282px;
 	background-color: white;
 }
 #loungeHostingTrapezeRight {
 	display: inline-block;
-    border-right: 100px solid #00F;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    height: 40vh;
-    width: 0px;
+	background-color:blue;
+    height: 282px;
+    width: 100px;
 }
-#loungeHostingSpeakerRight {
+
+#loungeHostingMainBox {
+	display:inline-block;
+	background-color:black; 
+}
+.loungeHostingSpeakerAndTrapeze {
 	display: inline-block;
-	width:14%;
-	height:50vh;
-	background-color:red;
+	height:300px;
+	width:400px;
 }

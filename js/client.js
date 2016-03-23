@@ -119,7 +119,8 @@ $("#loungeVotingBack").click(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
         $(".chat").html("");
-        socket.emit("disconnect");
+        socket.emit("userDisconnection");
+        
     }, 500);
     $("#joinLounge").removeClass("joinLoungeHided");
     $("#loungeVoting").addClass("loungeVotingHided");
@@ -132,7 +133,7 @@ $("#loungeVotingBack").click(function() {
 //////////
 
 $(".chatSendButton").click(function() {
-    socket.emit("newMessage", { "messageAuthor": $("#loungeVotingUserName").text(), "messageContent": $(".chatInputMessage").val(), "actualLoungeName": $("#loungeVotingActualLoungeName").text() });
+    socket.emit("newMessage", $(".chatInputMessage").val());
     $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
     $(".chatInputMessage").val("");
 });
