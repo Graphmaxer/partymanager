@@ -6,16 +6,21 @@
 	</div>
 
 	<div id="joinLoungeBack">Retour</div>
-</div>
 
-<div id="passwordPopup" class="passwordPopupHided">
-	<form onsubmit="return(false)">
-		<div id="passwordPopupLoungeTitle">Rejoindre : <span id="passwordPopupLoungeName"></span></div>
-		<label for="passwordPopupLoungePassword">Mot de passe : </label>
-		<input type="password" id="passwordPopupLoungePassword" required/><br/>
+	<div id="passwordPopup" class="passwordPopupHided">
+		<form onsubmit="return(false)">
+			<div id="passwordPopupLoungeTitle">Rejoindre : <span id="passwordPopupLoungeName"></span></div>
 
-		<button id="passwordPopupLoungeButton" type="submit">Rejoindre</button>
+			<label for="passwordPopupUserName">Nom : </label>
+			<input type="text" id="passwordPopupUserName"/><br/>
 
-		<div id="passwordPopupLoungeBack">Annuler</div>
-	</form>
+			<label for="passwordPopupLoungePassword">Mot de passe : </label>
+			<input type="password" id="passwordPopupLoungePassword"/><br/>
+
+			<button id="passwordPopupLoungeButton" type="submit">Rejoindre</button>
+
+			<div id="passwordPopupLoungeBack">Annuler</div>
+		</form>
+	</div>
+
 </div>

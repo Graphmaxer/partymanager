@@ -8,7 +8,6 @@
 		</div>
 		<div id="loungeHostingScreen">
 			<h2>Screen</h2>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/unK4kEUmaz0" frameborder="0" allowfullscreen></iframe>
 		</div>
 		<div id="loungeHostingTrapezeRight">
 			<h2>TrapezeRight</h2>

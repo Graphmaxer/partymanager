@@ -1,151 +1,189 @@
-#joinLounge {
-	position: absolute;
-  	top: 0;
-  	right: 0;
-  	bottom: 0;
-  	left: 0;
-	margin: auto;
+#joinLounge
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
     width: 90%;
     height: 50%;
-    -webkit-transition: ease all 0.5s;
-	transition: ease all 0.5s;
+    margin: auto;
+
+    transition: ease all .5s;
 }
 
-.joinLoungeHided {
-	right: -3000px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+.joinLoungeHided
+{
+    right: -3000px!important;
+
+    visibility: hidden;
+
+    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
 }
 
-#joinLoungeBack {
-	display: inline-block;
-	margin-top: 15px;
-	color: #34495e;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#joinLoungeBack
+{
+    display: inline-block;
+
+    margin-top: 15px;
+
+    transition: ease all .3s;
+
+    color: #34495e;
 }
 
-#joinLoungeBack:hover {
-	color: #7f8c8d;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#joinLoungeBack:hover
+{
+    cursor: pointer;
+    transition: ease all .3s;
+
+    color: #7f8c8d;
 }
 
-.loungeListItem {
-	height: 25px;
-	font-size: 1.250em;
-	line-height: 25px;
-	background-color: #3498db;
-	display: inline-block;	
-	border-radius: 15px;
-	border: solid 3px #3498db;
-	padding: 10px;
-	margin: 5px;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+.loungeListItem
+{
+    font-size: 1.250em;
+    line-height: 25px;
+
+    display: inline-block;
+
+    height: 25px;
+    margin: 5px;
+    padding: 10px;
+
+    transition: ease all .3s;
+
+    border: solid 3px #3498db;
+    border-radius: 15px;
+    background-color: #3498db;
 }
 
-.loungeListItem:hover {
-	background-color: #2980b9;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+.loungeListItem:hover
+{
+    cursor: pointer;
+    transition: ease all .3s;
+
+    background-color: #2980b9;
 }
 
-.loungeListItem:active {
-	background-color: #34495e;
-	-webkit-transition: ease all 0.1s;
-	transition: ease all 0.1s;
+.loungeListItem:active
+{
+    transition: ease all .1s;
+
+    background-color: #34495e;
 }
 
-.loungeListName {
-	font-weight: 700;
-	color: #2c3e50;
+.loungeListName
+{
+    font-weight: 700;
+
+    color: #2c3e50;
 }
 
-.loungeListDescription {
-	color: #ecf0f1;
+.loungeListDescription
+{
+    color: #ecf0f1;
 }
 
-#passwordPopup {
-	position: absolute;
-	background-color: #34495e;
-	color: #ecf0f1;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	height: 115px;
-	width: 350px;
-	margin: auto;
-	z-index: 2;
-	padding: 5px;
-	border-radius: 10px;
-	box-shadow: #34495e 2px 2px 2px;
-	-webkit-transition: ease all 0.5s;
-	transition: ease all 0.5s;
+#passwordPopup
+{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    padding: 5px;
+
+    transition: ease all .5s;
+
+    color: #ecf0f1;
+    border-radius: 10px;
+    background-color: #34495e;
+    box-shadow: #34495e 2px 2px 2px;
 }
 
-.passwordPopupHided {
-	top: -100px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+.passwordPopupHided
+{
+    top: -100px!important;
+
+    visibility: hidden;
+
+    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
 }
 
-#passwordPopupLoungeTitle {
-	text-decoration: underline;
+#passwordPopupLoungeTitle
+{
+    text-decoration: underline;
 }
 
-#passwordPopupLoungeButton {
-	height: 30px;
-	font-size: 1em;
-	line-height: 20px;
-	width: 200px;
-	margin-top: 4px;
-	background-color: #3498db;
-	display: inline-block;
-	color: #ecf0f1;
-	border-radius: 15px;
-	border: solid 3px #3498db;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#passwordPopupLoungeButton
+{
+    font-size: 1em;
+    line-height: 20px;
+
+    display: inline-block;
+
+    width: 200px;
+    height: 30px;
+    margin-top: 4px;
+
+    transition: ease all .3s;
+
+    color: #ecf0f1;
+    border: solid 3px #3498db;
+    border-radius: 15px;
+    background-color: #3498db;
 }
 
-#passwordPopupLoungeButton:hover {
-	background-color: #2980b9;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#passwordPopupLoungeButton:hover
+{
+    cursor: pointer;
+    transition: ease all .3s;
+
+    background-color: #2980b9;
 }
 
-#passwordPopupLoungeButton:active {
-	background-color: #34495e;
-	-webkit-transition: ease all 0.1s;
-	transition: ease all 0.1s;
+#passwordPopupLoungeButton:active
+{
+    transition: ease all .1s;
+
+    background-color: #34495e;
 }
 
-#passwordPopupLoungeButton:focus {
-	outline: 0;
+#passwordPopupLoungeButton:focus
+{
+    outline: 0;
 }
 
-#passwordPopupLoungeBack {
-	margin-top: 9px;
-	font-size: 0.8em;
-	color: #bdc3c7;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#passwordPopupLoungeBack
+{
+    font-size: .8em;
+
+    margin-top: 9px;
+
+    transition: ease all .3s;
+
+    color: #bdc3c7;
 }
 
-#passwordPopupLoungeBack:hover {
-	color: #7f8c8d;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+#passwordPopupLoungeBack:hover
+{
+    cursor: pointer;
+    transition: ease all .3s;
+
+    color: #7f8c8d;
 }

@@ -1,18 +1,50 @@
-#loungeVoting {
+#loungeVoting
+{
     position: absolute;
-  	top: 110px;
-  	right: 0;
-  	left: 0;
-	margin: auto;
-    -webkit-transition: ease all 0.5s;
-	transition: ease all 0.5s;
+    top: 110px;
+    right: 0;
+    left: 0;
+
+    margin: auto;
+
+    transition: ease all .5s;
 }
 
-.loungeVotingHided {
-	top: -3000px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+.loungeVotingHided
+{
+    top: -3000px!important;
+
+    visibility: hidden;
+
+    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
+}
+
+#loungeVotingConnectedAs
+{
+    font-size: .8em;
+
+    color: #2c3e50;
+}
+
+#loungeVotingBack
+{
+    font-size: .8em;
+
+    margin-top: 9px;
+
+    transition: ease all .3s;
+
+    color: #34495e;
+}
+
+#loungeVotingBack:hover
+{
+    cursor: pointer;
+    transition: ease all .3s;
+
+    color: #7f8c8d;
 }

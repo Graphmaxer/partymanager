@@ -1,6 +1,6 @@
 @viewport { 
-    width: device-width; 
-    zoom: 1;
+	width: device-width; 
+	zoom: 1;
 }
 
 body {
@@ -10,22 +10,24 @@ body {
 	overflow: hidden;
 }
 
-h1 {
+h1, h2, h3 {
 	color: #2980b9;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 input, textarea {
 	margin: 5px;
-  	padding: 5px;
-  	border: solid 1px #7f8c8d;
-  	-webkit-transition: ease all 0.3s;
+	padding: 5px;
+	border: solid 1px #7f8c8d;
+	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
 }
 
 input:focus, textarea:focus{
-  	border: solid 1px #34495e;
-  	box-shadow: 0 0 5px 1px #2980b9;
-  	-webkit-transition: ease all 0.3s;
+	border: solid 1px #34495e;
+	box-shadow: 0 0 5px 1px #2980b9;
+	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
 }
 
@@ -72,4 +74,37 @@ input:focus, textarea:focus{
 	margin: 5px;
 	color: #ecf0f1;
 	font-size: 1.250em;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Work Sans'), local('WorkSans-Regular'), url(../font/WorkSans-Regular-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Work Sans'), local('WorkSans-Regular'), url(../font/WorkSans-Regular-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Work Sans Bold'), local('WorkSans-Bold'), url(../font/WorkSans-Bold-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Work Sans Bold'), local('WorkSans-Bold'), url(../font/WorkSans-Bold-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
