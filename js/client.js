@@ -128,6 +128,26 @@ $("#loungeVotingBack").click(function() {
 });
 
 
+//////////////////
+// USER LISTING //
+//////////////////
+
+socket.on("retrieveUsers", function(users) {
+    var userListLength = $(".userList li").length;
+    for (var i = 0; i < users.length; i++) {
+        if (userListLength)
+        $(".userList").append("<li class='userListName'>" + users[i].userName + "</li>");
+    }
+});
+
+socket.on("userListDisconnection", function(userName) {
+    alert(userName);
+    $(".userList li").filter(function() {
+        return $(this).text() == userName;
+    }).hide('slow', function(){ this.remove(); });
+});
+
+
 //////////
 // CHAT //
 //////////

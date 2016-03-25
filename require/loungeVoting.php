@@ -9,7 +9,7 @@
 		<button class="chatSendButton" type="submit">Envoyer</button>
 	</form>
 
-	<ul id="loungeVotingUserList">
+	<ul class="userList">
 		
 	</ul>
 
