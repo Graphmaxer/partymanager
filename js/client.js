@@ -141,7 +141,6 @@ socket.on("retrieveUsers", function(users) {
 });
 
 socket.on("userListDisconnection", function(userName) {
-    alert(userName);
     $(".userList li").filter(function() {
         return $(this).text() == userName;
     }).hide('slow', function(){ this.remove(); });
