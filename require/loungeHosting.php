@@ -2,16 +2,16 @@
 	<div id="loungeHostingMainBox">
 		<div class="loungeHostingSpeakerAndTrapeze">
 			<div class="loungeHostingSpeakers">
+			</div><!--
+			--><div id="loungeHostingTrapezeLeft">
 			</div>
-			<div id="loungeHostingTrapezeLeft">
-			</div>
-		</div>
-		<div id="loungeHostingScreen">
-		</div>
-		<div class="loungeHostingSpeakerAndTrapeze">
+		</div><!--
+		--><div id="loungeHostingScreen">
+		</div><!--
+		--><div class="loungeHostingSpeakerAndTrapeze">
 			<div id="loungeHostingTrapezeRight">
-			</div>
-			<div class="loungeHostingSpeakers">
+			</div><!--
+			--><div class="loungeHostingSpeakers">
 			</div>
 		</div>
 	</div>

@@ -20,36 +20,45 @@
 
 .loungeHostingSpeakers {
 	display:inline-block;
-	width:200px;
-	height:100px;
-	background-color:red;
+	width:75%;
+	height:inherit;
+	background-color:#273C50;
 	top:0;
+	margin-left: auto;
+	margin-right: auto;
 }
 #loungeHostingTrapezeLeft {
   	display: inline-block;
-	background-color:blue;
-    height: 282px;
-    width: 100px;
+	background-color:#7F8D8E;
+    height: inherit;
+    width: 25%;
+    margin-left: auto;
+	margin-right: auto;
 }
 #loungeHostingScreen {
 	display: inline-block;
-	width:502px;
-	height:282px;
-	background-color: white;
+	width:35%;
+	height:45vh;
+	background-color: #1A1B1F;
+	margin-bottom:15vh;
 }
 #loungeHostingTrapezeRight {
 	display: inline-block;
-	background-color:blue;
-    height: 282px;
-    width: 100px;
+	background-color:#7F8D8E;
+    height: inherit;
+    width: 25%;
+    margin-left: auto;
+	margin-right: auto;
 }
 
 #loungeHostingMainBox {
 	display:inline-block;
-	background-color:black; 
+	width:100%;
+	margin-top: 50vh;
+	transform: translateY(-50%);
 }
 .loungeHostingSpeakerAndTrapeze {
 	display: inline-block;
-	height:300px;
-	width:400px;
+	width:25%;
+	height:75vh;
 }

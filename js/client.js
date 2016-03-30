@@ -119,6 +119,7 @@ $("#loungeVotingBack").click(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
         $(".chat").html("");
+        $(".userList").html("");
         socket.emit("userDisconnection");
         
     }, 500);
@@ -133,17 +134,20 @@ $("#loungeVotingBack").click(function() {
 //////////////////
 
 socket.on("retrieveUsers", function(users) {
-    var userListLength = $(".userList li").length;
     for (var i = 0; i < users.length; i++) {
-        if (userListLength)
         $(".userList").append("<li class='userListName'>" + users[i].userName + "</li>");
     }
+});
+
+socket.on("retrieveNewUser", function(userName) {
+    $(".userList").append("<li class='userListName' style='display: none;'>" + userName + "</li>");
+    $(".userListName:hidden").show("slow");
 });
 
 socket.on("userListDisconnection", function(userName) {
     $(".userList li").filter(function() {
         return $(this).text() == userName;
-    }).hide('slow', function(){ this.remove(); });
+    }).hide("slow", function(){ this.remove(); });
 });
 
 
