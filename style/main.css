@@ -39,7 +39,8 @@ input:focus, textarea:focus{
 }
 
 .logoReduced {
-	width: 0px!important;
+	height: 10vh!important;
+	width: auto!important;
 	-webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }

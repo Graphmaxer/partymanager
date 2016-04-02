@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>PartyManager : Let the crowd take control</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
-	<link rel="stylesheet" type="text/css" href="style/mediaQueries.css"/>
 	<link rel="stylesheet" type="text/css" href="style/main.css"/>
 	<link rel="stylesheet" type="text/css" href="style/home.css"/>
 	<link rel="stylesheet" type="text/css" href="style/loungeCreation.css"/>

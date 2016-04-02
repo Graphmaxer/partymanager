@@ -45,6 +45,18 @@ $("#loungeCreationButton").click(function() {
 });
 
 
+////////////////////////
+// OPEN LOUNGE VOTING //
+////////////////////////
+
+socket.on("openLoungeHosting", function() {
+    $("#loungeCreation").addClass("loungeCreationHided");
+    $("#loungeHosting").removeClass("loungeHostingHided");
+    $("#logo").addClass("logoReduced");
+    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight")}, 1000);
+});
+
+
 ////////////////////
 // LOUNGE LISTING //
 ////////////////////
@@ -68,9 +80,9 @@ socket.on("retrieveNewLounge", function(lounge) {
 });
 
 
-/////////////////
-// OPEN LOUNGE //
-/////////////////
+////////////////////////
+// OPEN LOUNGE VOTING //
+////////////////////////
 
 $("#loungeList").on("click", ".loungeListItem", function() {
     $("#passwordPopup").removeClass("passwordPopupHided");
@@ -91,10 +103,10 @@ $("#passwordPopupLoungeBack").click(function() {
 });
 
 $("#passwordPopupLoungeButton").click(function() {
-    socket.emit("openLoungeRequest", { "loungeName": $("#passwordPopupLoungeName").text(), "loungePassword": $("#passwordPopupLoungePassword").val(), "userName": $("#passwordPopupUserName").val() });
+    socket.emit("openLoungeVotingRequest", { "loungeName": $("#passwordPopupLoungeName").text(), "loungePassword": $("#passwordPopupLoungePassword").val(), "userName": $("#passwordPopupUserName").val() });
 });
 
-socket.on("loungeOpened", function(loungeInfo) {
+socket.on("loungeVotingOpened", function(loungeInfo) {
     //alert(socket.io.engine.id);
     $("#passwordPopup").addClass("passwordPopupHided");
     $("#loungeVotingActualLoungeName").html($("#passwordPopupLoungeName").text());
