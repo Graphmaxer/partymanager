@@ -32,7 +32,8 @@ input:focus, textarea:focus{
 }
 
 #logo {
-	width: 50%;
+	width:auto;
+	height:20vh;
 	margin-top: 10px;
 	-webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;

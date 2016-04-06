@@ -1,3 +1,7 @@
+.chatBox {
+	position: absolute;
+}
+
 .chatBox h2 {
 	color: #354b60;
 }
@@ -5,9 +9,9 @@
 .chat {
 	overflow-y: scroll;
 	height: 40vh;
-	width: 25vw;
+	width: auto;
 	margin: auto;
-	background-color: #7f8c8d;
+	background-color: #354b60;
 }
 
 .message {
@@ -31,7 +35,7 @@
 .chatSendButton {
 	height: 50px;
 	font-size: 1.4em;
-	line-height: 50px;
+	line-height: 45px;
 	width: 125px;
 	background-color: #3498db;
 	display: inline-block;
