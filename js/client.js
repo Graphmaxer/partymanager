@@ -107,7 +107,6 @@ $("#passwordPopupLoungeButton").click(function() {
 });
 
 socket.on("loungeVotingOpened", function(loungeInfo) {
-    //alert(socket.io.engine.id);
     $("#passwordPopup").addClass("passwordPopupHided");
     $("#loungeVotingActualLoungeName").html($("#passwordPopupLoungeName").text());
     $("#loungeVotingUserName").html($("#passwordPopupUserName").val());
@@ -167,22 +166,46 @@ socket.on("userListDisconnection", function(userName) {
 // CHAT //
 //////////
 
-$(".chatSendButton").click(function() {
-    socket.emit("newMessage", $(".chatInputMessage").val());
-    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
-    $(".chatInputMessage").val("");
-});
-
 socket.on("retrieveMessages", function(messages) {
     var messageList = "";
     for (var i = 0; i < messages.length; i++) {
-        messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
+        if (messages[i].isHost == true) {
+            messageList += "<div class='hostMessage'><span class='hostMessageAuthor'>" + messages[i].messageAuthor + " : </span><span class='hostMessageContent'>" + messages[i].messageContent + "</span></div>";
+        }
+        else {
+            messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
+        }
     }
 
-    $(".chat").html(messageList);
+    $("#loungeHostingChat").html(messageList);
+    $("#loungeVotingChat").html(messageList);
 });
 
 socket.on("retrieveNewMessage", function(message) {
-    $(".chat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
-    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
+    $("#loungeHostingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+    $("#loungeVotingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+    $("#loungeHostingChat").animate({ scrollTop: $("#loungeHostingChat").prop("scrollHeight") }, 300);
+    $("#loungeVotingChat").animate({ scrollTop: $("#loungeVotingChat").prop("scrollHeight") }, 300);
+});
+
+
+/////////////////////////
+// LOUNGE HOSTING CHAT //
+/////////////////////////
+
+$("#loungeHostingChatSendButton").click(function() {
+    socket.emit("newMessage", $("#loungeHostingChatInputMessage").val());
+    $("#loungeHostingChat").animate({ scrollTop: $("#loungeHostingChat").prop("scrollHeight") }, 300);
+    $("#loungeHostingChatInputMessage").val("");
+});
+
+
+////////////////////////
+// LOUNGE VOTING CHAT //
+////////////////////////
+
+$("#loungeVotingChatSendButton").click(function() {
+    socket.emit("newMessage", $("#loungeVotingChatInputMessage").val());
+    $("#loungeVotingChat").animate({ scrollTop: $("#loungeVotingChat").prop("scrollHeight") }, 300);
+    $("#loungeVotingChatInputMessage").val("");
 });
