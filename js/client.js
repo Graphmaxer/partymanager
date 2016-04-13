@@ -53,7 +53,6 @@ socket.on("openLoungeHosting", function() {
     $("#loungeCreation").addClass("loungeCreationHided");
     $("#loungeHosting").removeClass("loungeHostingHided");
     $("#logo").addClass("logoReduced");
-    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight")}, 1000);
 });
 
 
@@ -129,7 +128,7 @@ $("#loungeVotingBack").click(function() {
     setTimeout(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
-        $(".chat").html("");
+        $("#loungeVotingChat").html("");
         $(".userList").html("");
         socket.emit("userDisconnection");
         
