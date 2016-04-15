@@ -7,6 +7,11 @@
 		</div>
 
 		<div class="loungeCreationField">
+			<label for="loungeCreationHostName">Votre nom : </label>
+			<input type="text" id="loungeCreationHostName" required/>
+		</div>
+
+		<div class="loungeCreationField">
 			<label for="loungeCreationPassword">Mot de passe du salon : </label>
 			<input type="password" id="loungeCreationPassword" required/>
 		</div>

@@ -37,11 +37,7 @@ socket.on("errorMessage", function(errorMessage) {
 /////////////////////
 
 $("#loungeCreationButton").click(function() {
-    var loungeName = $("#loungeCreationName").val();
-    var loungePassword = $("#loungeCreationPassword").val();
-    var loungeDescription = $("#loungeCreationDescription").val();
-
-    socket.emit("newLounge", { "loungeName": loungeName, "loungePassword": loungePassword, "loungeDescription": loungeDescription });
+    socket.emit("newLounge", { "loungeName": $("#loungeCreationName").val(), "loungePassword": $("#loungeCreationPassword").val(), "loungeDescription": $("#loungeCreationDescription").val(), "hostName" : $("#loungeCreationHostName").val()});
 });
 
 
