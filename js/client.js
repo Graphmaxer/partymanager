@@ -141,7 +141,12 @@ $("#loungeVotingBack").click(function() {
 
 socket.on("retrieveUsers", function(users) {
     for (var i = 0; i < users.length; i++) {
-        $(".userList").append("<li class='userListName'>" + users[i].userName + "</li>");
+        if (users[i].isHost == true) {
+            $(".userList").append("<li class='userListHostName'>" + users[i].userName + "</li>");
+        }
+        else {
+            $(".userList").append("<li class='userListName'>" + users[i].userName + "</li>");
+        }
     }
 });
 
@@ -177,8 +182,15 @@ socket.on("retrieveMessages", function(messages) {
 });
 
 socket.on("retrieveNewMessage", function(message) {
-    $("#loungeHostingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
-    $("#loungeVotingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+    if (message.isHost == true) {
+        $("#loungeHostingChat").append("<div class='hostMessage'><span class='hostMessageAuthor'>" + message.messageAuthor + " : </span><span class='hostMessageContent'>" + message.messageContent + "</span></div>");
+        $("#loungeVotingChat").append("<div class='hostMessage'><span class='hostMessageAuthor'>" + message.messageAuthor + " : </span><span class='hostMessageContent'>" + message.messageContent + "</span></div>");
+    }
+    else {
+        $("#loungeHostingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+        $("#loungeVotingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+    }
+    
     $("#loungeHostingChat").animate({ scrollTop: $("#loungeHostingChat").prop("scrollHeight") }, 300);
     $("#loungeVotingChat").animate({ scrollTop: $("#loungeVotingChat").prop("scrollHeight") }, 300);
 });
