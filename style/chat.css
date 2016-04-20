@@ -68,20 +68,20 @@
 
 #loungeVotingChat {
 	overflow-y: scroll;
-	height: 40vh;
-	width: 25%;
+	height: 60vh;
+	width: inherit;
 	margin: auto;
 	background-color: #354b60;
 }
 
 #loungeVotingChatInputMessage {
-	width: 200px;
+	width: 85%;
 }
 
 #loungeVotingChatSendButton {
-	height: 50px;
-	font-size: 1.4em;
-	line-height: 45px;
+	height: 30px;
+	font-size: 1.1em;
+	line-height: 20px;
 	width: 125px;
 	background-color: #3498db;
 	display: inline-block;

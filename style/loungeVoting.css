@@ -1,17 +1,16 @@
-#loungeVoting
-{
+#loungeVoting {
     position: absolute;
-    top: 110px;
+    top: 0;
     right: 0;
     left: 0;
+    bottom: 0;
 
     margin: auto;
 
     transition: ease all .5s;
 }
 
-.loungeVotingHided
-{
+.loungeVotingHided {
     top: -3000px!important;
 
     visibility: hidden;
@@ -23,15 +22,35 @@
     filter: alpha(opacity=0);
 }
 
-#loungeVotingConnectedAs
-{
+#loungeVotingMainBox {
+    width:100%;
+    height: 70vh;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+#loungeVotingConnectedAs {
     font-size: .8em;
 
     color: #2c3e50;
 }
 
-#loungeVotingBack
-{
+#loungeVotingLeftBox {
+    display: inline-block;
+    background-color: #273C50;
+    height: inherit;
+    width: 65%;
+    vertical-align: top;
+}
+
+#loungeVotingRightBox {
+    display: inline-block;
+    background-color: #273C50;
+    height: inherit;
+    width: 20%;
+}
+
+#loungeVotingBack {
     font-size: .8em;
 
     margin-top: 9px;
@@ -41,10 +60,13 @@
     color: #34495e;
 }
 
-#loungeVotingBack:hover
-{
+#loungeVotingBack:hover {
     cursor: pointer;
     transition: ease all .3s;
 
     color: #7f8c8d;
+}
+
+.videoThumbnail {
+    height: 50px;
 }
