@@ -12,11 +12,11 @@
 		
 		<div id="loungeVotingRightBox">
 			<div id="loungeVotingChatBox">
-				<div id="loungeVotingChat">
+				<div class="chat">
 				</div>
-				<form onsubmit="return(false)">	
-					<input type="text" id="loungeVotingChatInputMessage" placeholder="Message" autocomplete="off"/><br/>
-					<button id="loungeVotingChatSendButton" type="submit">Envoyer</button>
+				<form class="chatForm" onsubmit="return(false)">	
+					<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off"/><br/>
+					<button class="chatSendButton" type="submit">Envoyer</button>
 				</form>
 			</div>
 

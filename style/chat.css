@@ -1,88 +1,47 @@
-.message {
+.chat {
+	overflow-y: scroll;
+	height: calc(100% - 75px);
+	width: 100%;
+	background-color: #354b60;
+}
+
+.chatMessage, .chatHostMessage {
 	padding: 2px;
 	border-bottom: solid 1px #95a5a6;
 }
 
-.messageAuthor {
+.chatMessageAuthor {
 	font-weight: 700;
 	color: #95a5a6;
 }
 
-.messageContent {
+.chatMessageContent {
 	color: #ecf0f1;
 }
 
-
-/************************
-** LOUNGE HOSTING CHAT **
-*************************/
-
-#loungeHostingChatBox {
-	width: 100%;
-	height: inherit;
-	display: table;
+.chatHostMessageAuthor {
+	font-weight: 700;
+	color: #3498db;
 }
 
-#loungeHostingChat {
-	overflow-y: scroll;
-	height: 50vh;
-	margin: auto;
-	background-color: #354b60;
-}
-
-#loungeHostingChatSendButton {
-	height: 50px;
-	font-size: 1.4em;
-	line-height: 45px;
-	width: 125px;
-	background-color: #3498db;
-	display: inline-block;
+.chatHostMessageContent {
 	color: #ecf0f1;
-	border-radius: 15px;
-	border: solid 3px #3498db;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+	font-style: italic;
 }
 
-#loungeHostingChatSendButton:hover {
-	background-color: #2980b9;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+.chatForm {
+	height: 75px;
 }
 
-#loungeHostingChatSendButton:active {
-	background-color: #34495e;
-	-webkit-transition: ease all 0.1s;
-	transition: ease all 0.1s;
-}
-
-#loungeHostingChatSendButton:focus {
-	outline: 0;
-}
-
-
-/***********************
-** LOUNGE VOTING CHAT **
-************************/
-
-#loungeVotingChat {
-	overflow-y: scroll;
-	height: 60vh;
-	width: inherit;
-	margin: auto;
-	background-color: #354b60;
-}
-
-#loungeVotingChatInputMessage {
+.chatInputMessage {
 	width: 85%;
 }
 
-#loungeVotingChatSendButton {
+.chatSendButton {
 	height: 30px;
 	font-size: 1.1em;
 	line-height: 20px;
-	width: 125px;
+	width: 100px;
 	background-color: #3498db;
 	display: inline-block;
 	color: #ecf0f1;
@@ -92,19 +51,19 @@
 	transition: ease all 0.3s;
 }
 
-#loungeVotingChatSendButton:hover {
+.chatSendButton:hover {
 	background-color: #2980b9;
 	cursor: pointer;
 	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;
 }
 
-#loungeVotingChatSendButton:active {
+.chatSendButton:active {
 	background-color: #34495e;
 	-webkit-transition: ease all 0.1s;
 	transition: ease all 0.1s;
 }
 
-#loungeVotingChatSendButton:focus {
+.chatSendButton:focus {
 	outline: 0;
 }

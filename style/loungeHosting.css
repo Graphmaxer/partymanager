@@ -1,64 +1,71 @@
 #loungeHosting {
     position: absolute;
-  	top: 0;
-  	right: 0;
-  	left: 0;
-  	bottom: 0;
-	margin: auto;
-    -webkit-transition: ease all 0.5s;
-	transition: ease all 0.5s;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    -webkit-transition: ease all .5s;
+    transition: ease all .5s;
 }
 
 .loungeHostingHided {
-	top: -3000px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+    top: -3000px!important;
+    visibility: hidden;
+    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 .loungeHostingSpeakers {
-	display:inline-block;
-	width:75%;
-	height:inherit;
-	background-color:#273C50;
-	top:0;
-	margin-left: auto;
-	margin-right: auto;
+    display: inline-block;
+    width: calc(100% - 5vw);
+    height: inherit;
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: top;
+    background-color: #273c50;
 }
+
 #loungeHostingTrapezeLeft {
-  	display: inline-block;
-	background-color:#7F8D8E;
-    height: inherit;
-    width: 25%;
-    margin-left: auto;
-	margin-right: auto;
+    display: inline-block;
+    height: 45vh;
+    border-left: 5vw solid #7f8d8e;
+	border-top: 15vh solid transparent;
+	border-bottom: 15vh solid transparent;
+	width: 0;
+	vertical-align: top;
 }
+
 #loungeHostingScreen {
-	display: inline-block;
-	width:35%;
-	height:45vh;
-	background-color: #1A1B1F;
-	margin-bottom:15vh;
+    display: inline-block;
+    width: 35%;
+    height: 45vh;
+    margin-top: 15vh;
+    background-color: #1a1b1f;
 }
+
 #loungeHostingTrapezeRight {
-	display: inline-block;
-	background-color:#7F8D8E;
-    height: inherit;
-    width: 25%;
-    margin-left: auto;
-	margin-right: auto;
+    display: inline-block;
+    height: 45vh;
+    border-right: 5vw solid #7f8d8e;
+	border-top: 15vh solid transparent;
+	border-bottom: 15vh solid transparent;
+	width: 0;
+	vertical-align: top;
 }
 
 #loungeHostingMainBox {
-	display:inline-block;
-	width:100%;
-	margin-top: 50vh;
-	transform: translateY(-50%);
+    display: inline-block;
+    width: 100%;
+    margin-top: 50vh;
+    transform: translateY(-50%);
 }
+
 .loungeHostingSpeakerAndTrapeze {
-	display: inline-block;
-	width:25%;
-	height:75vh;
+    display: inline-block;
+    width: 25%;
+    height: 75vh;
+    vertical-align: top;
 }

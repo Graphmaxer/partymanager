@@ -12,15 +12,12 @@
 			<div id="loungeHostingTrapezeRight">
 			</div><!--
 			--><div class="loungeHostingSpeakers">
-				<div id="loungeHostingChatBox">
-					<div id="loungeHostingChat">
-			
-					</div>
-						<form onsubmit="return(false)">
-							<input type="text" id="loungeHostingChatInputMessage" placeholder="Message" autocomplete="off"/><br/>
-							<button id="loungeHostingChatSendButton" type="submit">Envoyer</button>
-						</form>
+				<div class="chat">
 				</div>
+					<form class="chatForm" onsubmit="return(false)">
+						<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off"/><br/>
+						<button class="chatSendButton" type="submit">Envoyer</button>
+					</form>
 			</div>
 		</div>
 	</div>
