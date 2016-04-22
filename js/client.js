@@ -112,7 +112,7 @@ socket.on("loungeVotingOpened", function(loungeInfo) {
     $("#joinLounge").addClass("joinLoungeHided");
     $("#loungeVoting").removeClass("loungeVotingHided");
     $("#logo").addClass("logoReduced");
-    $("#chat").animate({ scrollTop: $("#chat").prop("scrollHeight") }, 1000);
+    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 1000);
 });
 
 
@@ -124,7 +124,7 @@ $("#loungeVotingBack").click(function() {
     setTimeout(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
-        $("#loungeVotingChat").html("");
+        $(".chat").html("");
         $(".userList").html("");
         socket.emit("userDisconnection");
         
@@ -170,49 +170,29 @@ socket.on("retrieveMessages", function(messages) {
     var messageList = "";
     for (var i = 0; i < messages.length; i++) {
         if (messages[i].isHost == true) {
-            messageList += "<div class='hostMessage'><span class='hostMessageAuthor'>" + messages[i].messageAuthor + " : </span><span class='hostMessageContent'>" + messages[i].messageContent + "</span></div>";
+            messageList += "<div class='chatHostMessage'><span class='chatHostMessageAuthor'>" + messages[i].messageAuthor + " : </span><span class='chatHostMessageContent'>" + messages[i].messageContent + "</span></div>";
         }
         else {
-            messageList += "<div class='message'><span class='messageAuthor'>" + messages[i].messageAuthor + " : </span><span class='messageContent'>" + messages[i].messageContent + "</span></div>";
+            messageList += "<div class='chatMessage'><span class='chatMessageAuthor'>" + messages[i].messageAuthor + " : </span><span class='chatMessageContent'>" + messages[i].messageContent + "</span></div>";
         }
     }
 
-    $("#loungeHostingChat").html(messageList);
-    $("#loungeVotingChat").html(messageList);
+    $(".chat").html(messageList);
 });
 
 socket.on("retrieveNewMessage", function(message) {
     if (message.isHost == true) {
-        $("#loungeHostingChat").append("<div class='hostMessage'><span class='hostMessageAuthor'>" + message.messageAuthor + " : </span><span class='hostMessageContent'>" + message.messageContent + "</span></div>");
-        $("#loungeVotingChat").append("<div class='hostMessage'><span class='hostMessageAuthor'>" + message.messageAuthor + " : </span><span class='hostMessageContent'>" + message.messageContent + "</span></div>");
+        $(".chat").append("<div class='chatHostMessage'><span class='chatHostMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatHostMessageContent'>" + message.messageContent + "</span></div>");
     }
     else {
-        $("#loungeHostingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
-        $("#loungeVotingChat").append("<div class='message'><span class='messageAuthor'>" + message.messageAuthor + " : </span><span class='messageContent'>" + message.messageContent + "</span></div>");
+        $(".chat").append("<div class='chatMessage'><span class='chatMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatMessageContent'>" + message.messageContent + "</span></div>");
     }
     
-    $("#loungeHostingChat").animate({ scrollTop: $("#loungeHostingChat").prop("scrollHeight") }, 300);
-    $("#loungeVotingChat").animate({ scrollTop: $("#loungeVotingChat").prop("scrollHeight") }, 300);
+    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
 });
 
-
-/////////////////////////
-// LOUNGE HOSTING CHAT //
-/////////////////////////
-
-$("#loungeHostingChatSendButton").click(function() {
-    socket.emit("newMessage", $("#loungeHostingChatInputMessage").val());
-    $("#loungeHostingChat").animate({ scrollTop: $("#loungeHostingChat").prop("scrollHeight") }, 300);
-    $("#loungeHostingChatInputMessage").val("");
-});
-
-
-////////////////////////
-// LOUNGE VOTING CHAT //
-////////////////////////
-
-$("#loungeVotingChatSendButton").click(function() {
-    socket.emit("newMessage", $("#loungeVotingChatInputMessage").val());
-    $("#loungeVotingChat").animate({ scrollTop: $("#loungeVotingChat").prop("scrollHeight") }, 300);
-    $("#loungeVotingChatInputMessage").val("");
+$(".chatSendButton").click(function() {
+    socket.emit("newMessage", $(".chatInputMessage").val());
+    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
+    $(".chatInputMessage").val("");
 });
