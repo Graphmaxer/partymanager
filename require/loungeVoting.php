@@ -3,11 +3,22 @@
 	<div id="loungeVotingMainBox">
 		<div id="loungeVotingConnectedAs">Connect&eacute;(e) en tant que : <span id="loungeVotingUserName"></span></div>
 		<div id="loungeVotingLeftBox">
-			<div id="">
-				<input type="text" id="searchInput"/>
-				<div id="searchResult">
+				<div id="loungeVotingVideoList">
+					<div id="searchResult">
+					</div>
+					<div class="videoThumbnail">
+					</div>
 				</div>
-			</div>
+				<div id="loungeVotingTitleList">
+					<input type="text" id="searchInput"/>
+					<ul class="TitleVideo">
+    					<li>Video 1</li>
+     					<li>Video 2</li>
+     					<li>Video 3</li>
+     					<li>Video 4</li>
+     					<li>Video 5</li>
+					</ul>
+				</div>
 		</div>
 		
 		<div id="loungeVotingRightBox">

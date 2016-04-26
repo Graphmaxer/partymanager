@@ -78,5 +78,25 @@
 }
 
 .videoThumbnail {
-    height: 50px;
+    height:13.2vh;
+    width:100%;
+}
+#loungeVotingVideoList {
+    float:left;
+    height: inherit;
+    width: 20%;
+    background-color: red;
+}
+#loungeVotingTitleList {
+    display:block;
+    float:right;
+    height:inherit;
+    width: 80%;
+    background-color: blue;
+}
+.TitleVideo {
+    list-style-type:none;
+    text-align: left;
+
+
 }
