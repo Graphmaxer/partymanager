@@ -21,15 +21,35 @@
 
 	for ($i = 0; $i < $resultsPerPage; $i++) {
 
+		$videoId = $decodedJsonVideos -> {"items"}[$i] -> {"id"} -> {"videoId"};
 		$thumbnailLink = $decodedJsonVideos -> {'items'}[$i] -> {'snippet'} -> {'thumbnails'} -> {'medium'} -> {'url'};
+		$title = $decodedJsonVideos -> {"items"}[$i] -> {"snippet"} -> {"title"};
+
+		$jsonVideo = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=statistics&id=".$videoId."&key=".$apiKey);
+
+		$decodedJsonVideo = json_decode($jsonVideo);
+
+		$viewCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"viewCount"};
+
+		$likeCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"likeCount"};
+
+		$dislikeCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"dislikeCount"};
+
+		$jsonVideoDuration = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=".$videoId."&key=".$apiKey);
+
+		$decodedjsonVideoDuration = json_decode($jsonVideoDuration);
+
+		$duration = $decodedjsonVideoDuration -> {"items"}[0] -> {"contentDetails"} -> {"duration"};
+		echo strtotime($duration);
+		$duration = date("i-s", strtotime($duration));
 
 		echo'<div class="loungeVotingVideoAndTitleBox">';
 			echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
-			echo'<h2 class="VideoTitle">Titre de la vidéo</h2>';
-			echo '<div class="loungeVotingNombreVue">20 000</div>';
-			echo '<div class="loungeVotingUpVote">1500/</div>';
-			echo '<div class="loungeVotingDownVote"> 13</div>';
-			echo '<div class="loungeVotingDuree">3.53</div>';
+			echo'<h2 class="VideoTitle">'.$title.'</h2>';
+			echo '<div class="loungeVotingNombreVue">'.$viewCount.'</div>';
+			echo '<div class="loungeVotingUpVote">'.$likeCount.'</div>';
+			echo '<div class="loungeVotingDownVote">'.$dislikeCount.'</div>';
+			echo '<div class="loungeVotingDuree">'.$duration.'</div>';
 		echo'</div>';
 	}
 ?>

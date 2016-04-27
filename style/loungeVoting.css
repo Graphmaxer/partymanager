@@ -56,61 +56,61 @@
 #loungeVotingRightChatButton {
     display: inline-block;
     float: left;
-    height: 100%;
     width: 50%;
+    height: 100%;
 }
 
 #loungeVotingRightChatImage {
-    background-image: url("../img/chatIcon.png");
-    background-size: 27px;
-    background-repeat: no-repeat;
-    background-position: center;
     height: 100%;
     transition: ease all .3s;
+    background-image: url('../img/chatIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 27px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
 #loungeVotingRightChatImage:hover {
+    transition: ease all .3s;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
-    transition: ease all .3s;
 }
 
 .loungeVotingRightChatImageActive {
+    transition: ease all .3s!important;
     -webkit-filter: grayscale(0%)!important;
     filter: grayscale(0%)!important;
-    transition: ease all .3s!important;
 }
 
 #loungeVotingRightUserButton {
-    float: right;
     display: inline-block;
-    height: 100%;
+    float: right;
     width: 50%;
+    height: 100%;
 }
 
 #loungeVotingRightUserImage {
-    background-image: url("../img/userListIcon.png");
-    background-size: 27px;
-    background-repeat: no-repeat;
     height: 100%;
-    background-position: center;
     transition: ease all .3s;
+    background-image: url('../img/userListIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 27px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
 #loungeVotingRightUserImage:hover {
+    transition: ease all .3s;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
-    transition: ease all .3s;
 }
 
 .loungeVotingRightUserImageActive {
+    transition: ease all .3s!important;
     -webkit-filter: grayscale(0%)!important;
     filter: grayscale(0%)!important;
-    transition: ease all .3s!important;
 }
 
 #loungeVotingChatUserBox {
@@ -127,9 +127,9 @@
 }
 
 .loungeVotingChatBoxHided {
+    transition: ease all .5s;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    transition: ease all .5s;
 }
 
 #loungeVotingUserListBox {
@@ -143,9 +143,9 @@
 }
 
 .loungeVotingUserListBoxHided {
+    transition: ease all .5s;
     -webkit-transform: translateY(-100%) translateX(100%)!important;
     transform: translateY(-100%) translateX(100%)!important;
-    transition: ease all .5s;
 }
 
 #loungeVotingBack {
@@ -162,43 +162,52 @@
 }
 
 .videoThumbnail {
-    height:13.25vh;
-    width:auto;
-    float:left;
-}
-.loungeVotingVideoAndTitleBox {
+    float: left;
+    width: auto;
     height: 13.25vh;
-    width:100%;  
 }
+
+.loungeVotingVideoAndTitleBox {
+    width: 100%;
+    height: 13.25vh;
+    display: inline-block;
+    position: relative;
+}
+
 #searchResult {
-    height:66.25vh;
-    width:100%;
     overflow: auto;
+    width: 100%;
+    height: calc(100% - 37px);
 }
+
 .VideoTitle {
-    color: #2980b9;
-    text-align: left;
-    margin-bottom:0px;
-    margin-top:0px;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: 30vh;
+    text-align: left;
+    color: #2980b9;
+    position: absolute;
 }
+
 .loungeVotingNombreVue {
-    float:right;
+    margin-top: 5vh;
     padding-right: 20px;
-    margin-top:5vh;
+    position: absolute;
 }
+
 .loungeVotingUpVote {
-    float:left;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding-left: 20px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-
+    position: absolute;
 }
+
 .loungeVotingDownVote {
-    float:left;
-    margin-bottom: 40px;
     margin-top: 40px;
+    margin-bottom: 40px;
+    position: absolute;
 }
-.loungeVotingDuree {
 
+.loungeVotingDuree {
+    position: absolute;
 }
