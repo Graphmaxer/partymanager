@@ -1,5 +1,5 @@
 .chat {
-	overflow-y: scroll;
+	overflow-y: auto;
 	height: calc(100% - 75px);
 	width: 100%;
 	background-color: #354b60;

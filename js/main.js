@@ -46,3 +46,22 @@ $("#joinLoungeBack").click(function() {
 	$("#home").removeClass("homeHided");
 	$("#joinLounge").addClass("joinLoungeHided");
 });
+
+
+///////////////////
+// LOUNGE VOTING //
+///////////////////
+
+$("#loungeVotingRightChatImage").click(function() {
+	$("#loungeVotingRightUserImage").removeClass("loungeVotingRightUserImageActive");
+	$("#loungeVotingRightChatImage").addClass("loungeVotingRightChatImageActive");
+	$("#loungeVotingUserListBox").addClass("loungeVotingUserListBoxHided");
+	$("#loungeVotingChatBox").removeClass("loungeVotingChatBoxHided");
+});
+
+$("#loungeVotingRightUserImage").click(function() {
+	$("#loungeVotingRightChatImage").removeClass("loungeVotingRightChatImageActive");
+	$("#loungeVotingRightUserImage").addClass("loungeVotingRightUserImageActive");
+	$("#loungeVotingChatBox").addClass("loungeVotingChatBoxHided");
+	$("#loungeVotingUserListBox").removeClass("loungeVotingUserListBoxHided");
+});

@@ -11,18 +11,30 @@
 		</div>
 		
 		<div id="loungeVotingRightBox">
-			<div id="loungeVotingChatBox">
-				<div class="chat">
+			<div id="loungeVotingRightButtons">
+				<div id="loungeVotingRightChatButton">
+					<div id="loungeVotingRightChatImage" class="loungeVotingRightChatImageActive"></div>
 				</div>
-				<form class="chatForm" onsubmit="return(false)">	
-					<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off"/><br/>
-					<button class="chatSendButton" type="submit">Envoyer</button>
-				</form>
+				<div id="loungeVotingRightUserButton">
+					<div id="loungeVotingRightUserImage"></div>
+				</div>
 			</div>
+			<div id="loungeVotingChatUserBox">	
+				<div id="loungeVotingChatBox">
+					<div class="chat">
+					</div>
+					<form class="chatForm" onsubmit="return(false)">	
+						<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off"/><br/>
+						<button class="chatSendButton" type="submit">Envoyer</button>
+					</form>
+				</div>
 
-			<div id="loungeVotingUserBox">
-				<ul class="userList">
-				</ul>
+				<div id="loungeVotingUserListBox" class="loungeVotingUserListBoxHided">
+					<ul class="userList">
+						<li class='userListHostName'>Graphmaxer</li>
+						<li class='userListName'>Zerto</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
