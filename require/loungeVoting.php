@@ -3,11 +3,9 @@
 	<div id="loungeVotingMainBox">
 		<div id="loungeVotingConnectedAs">Connect&eacute;(e) en tant que : <span id="loungeVotingUserName"></span></div>
 		<div id="loungeVotingLeftBox">
-			<div id="">
-				<input type="text" id="searchInput"/>
+			<input type="text" id="searchInput"/>
 				<div id="searchResult">
 				</div>
-			</div>
 		</div>
 		
 		<div id="loungeVotingRightBox">

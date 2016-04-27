@@ -23,8 +23,13 @@
 
 		$thumbnailLink = $decodedJsonVideos -> {'items'}[$i] -> {'snippet'} -> {'thumbnails'} -> {'medium'} -> {'url'};
 
-
-		echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
-
+		echo'<div class="loungeVotingVideoAndTitleBox">';
+			echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
+			echo'<h2 class="VideoTitle">Titre de la vidéo</h2>';
+			echo '<div class="loungeVotingNombreVue">20 000</div>';
+			echo '<div class="loungeVotingUpVote">1500/</div>';
+			echo '<div class="loungeVotingDownVote"> 13</div>';
+			echo '<div class="loungeVotingDuree">3.53</div>';
+		echo'</div>';
 	}
 ?>
