@@ -46,9 +46,6 @@
 		echo'<div class="loungeVotingVideoAndTitleBox">';
 			echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
 			echo'<h2 class="VideoTitle">'.$title.'</h2>';
-			echo '<div class="loungeVotingNombreVue">'.$viewCount.'</div>';
-			echo '<div class="loungeVotingUpVote">'.$likeCount.'</div>';
-			echo '<div class="loungeVotingDownVote">'.$dislikeCount.'</div>';
 			echo '<div class="loungeVotingDuree">'.$duration.'</div>';
 		echo'</div>';
 	}
