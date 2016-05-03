@@ -25,28 +25,25 @@
 		$thumbnailLink = $decodedJsonVideos -> {'items'}[$i] -> {'snippet'} -> {'thumbnails'} -> {'medium'} -> {'url'};
 		$title = $decodedJsonVideos -> {"items"}[$i] -> {"snippet"} -> {"title"};
 
-		$jsonVideo = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=statistics&id=".$videoId."&key=".$apiKey);
-
-		$decodedJsonVideo = json_decode($jsonVideo);
-
-		$viewCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"viewCount"};
-
-		$likeCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"likeCount"};
-
-		$dislikeCount = $decodedJsonVideo -> {"items"}[0] -> {"statistics"} -> {"dislikeCount"};
-
 		$jsonVideoDuration = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=".$videoId."&key=".$apiKey);
 
 		$decodedjsonVideoDuration = json_decode($jsonVideoDuration);
 
-		$duration = $decodedjsonVideoDuration -> {"items"}[0] -> {"contentDetails"} -> {"duration"};
-		echo strtotime($duration);
-		$duration = date("i-s", strtotime($duration));
+		$durationISO = $decodedjsonVideoDuration -> {"items"}[0] -> {"contentDetails"} -> {"duration"};
+
+		$duration = new DateInterval($durationISO);
+
 
 		echo'<div class="loungeVotingVideoAndTitleBox">';
 			echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
 			echo'<h2 class="VideoTitle">'.$title.'</h2>';
-			echo '<div class="loungeVotingDuree">'.$duration.'</div>';
+
+			if ($duration->format('%H') == "00") {
+				echo '<div class="loungeVotingDuree">'.$duration->format('%I:%S').'</div>';
+			}
+			else {
+				echo '<div class="loungeVotingDuree">'.$duration->format('%H:%I:%S').'</div>';
+			}
 		echo'</div>';
 	}
 ?>

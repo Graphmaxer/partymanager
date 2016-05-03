@@ -1,7 +1,7 @@
-$("#searchInput").on("input", function() {
-	var searchKeyword = $(this).val();
+$("#loungeVotingSearchButton").click(function() {
+	var searchKeyword = $("#loungeVotingSearchInput").val();
 
 	$.post("script/search.php", { searchInput: searchKeyword }, function (data) {
-		$("#searchResult").html(data);
+		$("#loungeVotingSearchResult").html(data);
 	});
 });

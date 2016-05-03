@@ -29,6 +29,37 @@
     color: #2c3e50;
 }
 
+#loungeVotingSearchButton {
+    height: 17px;
+    font-size: 1em;
+    line-height: 15px;
+    width: 100px;
+    background-color: #3498db;
+    display: inline-block;
+    color: #ecf0f1;
+    border-radius: 15px;
+    border: solid 3px #3498db;
+    -webkit-transition: ease all 0.3s;
+    transition: ease all 0.3s;
+}
+
+#loungeVotingSearchButton:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+    -webkit-transition: ease all 0.3s;
+    transition: ease all 0.3s;
+}
+
+#loungeVotingSearchButton:active {
+    background-color: #34495e;
+    -webkit-transition: ease all 0.1s;
+    transition: ease all 0.1s;
+}
+
+#loungeVotingSearchButton:focus {
+    outline: 0;
+}
+
 #loungeVotingLeftBox {
     display: inline-block;
     width: 65%;
@@ -182,7 +213,7 @@
     position: relative;
 }
 
-#searchResult {
+#loungeVotingSearchResult {
     overflow: auto;
     width: 100%;
     height: calc(100% - 37px);
