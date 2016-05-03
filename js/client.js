@@ -45,10 +45,14 @@ $("#loungeCreationButton").click(function() {
 // OPEN LOUNGE VOTING //
 ////////////////////////
 
+var isUserHost;
+
 socket.on("openLoungeHosting", function() {
     $("#loungeCreation").addClass("loungeCreationHided");
     $("#loungeHosting").removeClass("loungeHostingHided");
     $("#logo").addClass("logoReduced");
+
+    isUserHost = true; 
 });
 
 
@@ -60,7 +64,7 @@ socket.on("retrieveLounges", function(lounges) {
     var loungeList = "";
 
     if (lounges.length === 0) {
-        loungeList = "Pas de salon";
+        loungeList = "<p>Pas de salon</p>";
     } else {
         for (var i = 0; i < lounges.length; i++) {
             loungeList += "<div class='loungeListItem'><span class='loungeListName'>" + lounges[i].loungeName + " : </span><span class='loungeListDescription'>" + lounges[i].loungeDescription + "</span></div>";
@@ -192,7 +196,19 @@ socket.on("retrieveNewMessage", function(message) {
 });
 
 $(".chatSendButton").click(function() {
-    socket.emit("newMessage", $(".chatInputMessage").val());
+    socket.emit("newMessage", $(this).siblings(".chatInputMessage").val());
     $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
     $(".chatInputMessage").val("");
+});
+
+
+////////////////////////
+// HOST DISCONNECTION //
+////////////////////////
+
+$(window).bind("beforeunload", function(){
+    if (isUserHost == true) {
+        return "Si vous quitter cette page, ce salon sera supprimer";
+        socket.emit("hostDisconnection");
+    }
 });

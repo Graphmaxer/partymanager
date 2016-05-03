@@ -38,6 +38,25 @@ $("#loungeCreationBack").click(function() {
 });
 
 
+////////////////////
+// LOUNGE HOSTING //
+////////////////////
+
+$("#loungeHostingRightChatImage").click(function() {
+	$("#loungeHostingRightUserImage").removeClass("loungeHostingRightUserImageActive");
+	$("#loungeHostingRightChatImage").addClass("loungeHostingRightChatImageActive");
+	$("#loungeHostingUserListBox").addClass("loungeHostingUserListBoxHided");
+	$("#loungeHostingChatBox").removeClass("loungeHostingChatBoxHided");
+});
+
+$("#loungeHostingRightUserImage").click(function() {
+	$("#loungeHostingRightChatImage").removeClass("loungeHostingRightChatImageActive");
+	$("#loungeHostingRightUserImage").addClass("loungeHostingRightUserImageActive");
+	$("#loungeHostingChatBox").addClass("loungeHostingChatBoxHided");
+	$("#loungeHostingUserListBox").removeClass("loungeHostingUserListBoxHided");
+});
+
+
 /////////////////
 // JOIN LOUNGE //
 /////////////////

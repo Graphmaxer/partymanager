@@ -31,6 +31,10 @@ input:focus, textarea:focus{
 	transition: ease all 0.3s;
 }
 
+p {
+	color: #13304D;
+}
+
 #logo {
 	width:auto;
 	height:20vh;
@@ -109,4 +113,39 @@ input:focus, textarea:focus{
 	font-weight: 700;
 	src: local('Work Sans Bold'), local('WorkSans-Bold'), url(../font/WorkSans-Bold-latin.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+.userList {
+	list-style-type: none;
+	padding-left: 0px;
+	margin: auto;
+}
+
+.userListName {
+	color: #95a5a6;
+}
+
+.userListHostName {
+	color: #3498db;
+	font-weight: 700;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-button {
+	display: none;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #445D76;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #1E344B;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #445D76;
 }

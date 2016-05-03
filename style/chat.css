@@ -1,8 +1,10 @@
 .chat {
 	overflow-y: auto;
+	overflow-x: hidden;
 	height: calc(100% - 75px);
 	width: 100%;
-	background-color: #354b60;
+	background-color: #34495e;
+	word-break: break-word;
 }
 
 .chatMessage, .chatHostMessage {
@@ -17,6 +19,7 @@
 
 .chatMessageContent {
 	color: #ecf0f1;
+	word-wrap: break-word;	
 }
 
 .chatHostMessageAuthor {
@@ -27,6 +30,7 @@
 .chatHostMessageContent {
 	color: #ecf0f1;
 	font-style: italic;
+	word-wrap: break-word;
 }
 
 .chatForm {
