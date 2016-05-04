@@ -30,7 +30,7 @@
 }
 
 #loungeVotingSearchButton {
-    height: 17px;
+    height: 23px;
     font-size: 1em;
     line-height: 15px;
     width: 100px;
@@ -200,23 +200,23 @@
     color: #7f8c8d;
 }
 
-.videoThumbnail {
-    float: left;
-    width: 20%;
-    height: auto;
-}
-
-.loungeVotingVideoAndTitleBox {
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    position: relative;
-}
-
 #loungeVotingSearchResult {
     overflow: auto;
     width: 100%;
     height: calc(100% - 37px);
+}
+
+.loungeVotingVideoAndTitleBox {
+    width: 100%;
+    height: 10vh;
+    display: inline-block;
+    position: relative;
+}
+
+.videoThumbnail {
+    float: left;
+    width: 20%;
+    height: auto;
 }
 
 .VideoTitle {
@@ -231,8 +231,8 @@
     -webkit-border-radius:10px 0;
     border-radius:30px 0;
     width:70%;
-    height:10vh;
-    line-height:10vh;
+    height:inherit;
+    
 }
 
 

@@ -2,8 +2,10 @@
 	<div id="loungeVotingMainBox">
 		<div id="loungeVotingConnectedAs">Connect&eacute;(e) en tant que : <span id="loungeVotingUserName"></span> dans le salon : <span id="loungeVotingActualLoungeName"></span></div>
 		<div id="loungeVotingLeftBox">
-			<input type="text" id="loungeVotingSearchInput"/>
-			<div id="loungeVotingSearchButton">Rechercher</div>
+			<form onsubmit="return(false)">
+				<input type="text" id="loungeVotingSearchInput"/>
+				<button id="loungeVotingSearchButton" type="submit">Rechercher</button>
+			</form>
 				<div id="loungeVotingSearchResult">
 				</div>
 		</div>
