@@ -1,17 +1,9 @@
-$("#goToLoungeHostingTEMP").click(function() {
-	$("#home").addClass("homeHided");
-	$("#loungeHosting").removeClass("loungeHostingHided");
-	$("#logo").addClass("logoReduced");
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
-});
-
-$("#goToLoungeVotingTEMP").click(function() {
-	$("#home").addClass("homeHided");
-	$("#loungeVoting").removeClass("loungeVotingHided");
-	$("#logo").addClass("logoReduced");
-	$("#tchat").animate({ scrollTop: $("#tchat").prop("scrollHeight")}, 1000);
-});
-
+// Disable tab key
+$(document).keydown(function(objEvent) {
+    if (objEvent.keyCode == 9 && isUserConnected) {
+        objEvent.preventDefault();
+    }
+})
 
 //////////
 // HOME //
@@ -71,16 +63,10 @@ $("#joinLoungeBack").click(function() {
 // LOUNGE VOTING //
 ///////////////////
 
-$("#loungeVotingRightChatImage").click(function() {
-	$("#loungeVotingRightUserImage").removeClass("loungeVotingRightUserImageActive");
-	$("#loungeVotingRightChatImage").addClass("loungeVotingRightChatImageActive");
-	$("#loungeVotingUserListBox").addClass("loungeVotingUserListBoxHided");
-	$("#loungeVotingChatBox").removeClass("loungeVotingChatBoxHided");
-});
+$("#loungeVotingButtons div div").click(function() {
+	$("#loungeVotingButtons div div").removeClass();
+	$(this).addClass($(this).attr("id") + "Active");
 
-$("#loungeVotingRightUserImage").click(function() {
-	$("#loungeVotingRightChatImage").removeClass("loungeVotingRightChatImageActive");
-	$("#loungeVotingRightUserImage").addClass("loungeVotingRightUserImageActive");
-	$("#loungeVotingChatBox").addClass("loungeVotingChatBoxHided");
-	$("#loungeVotingUserListBox").removeClass("loungeVotingUserListBoxHided");
+	$("#loungeVotingContentBox > div").removeClass();
+	$("#loungeVotingContentBox").find("#" + $(this).attr("id").slice(0,-5) + "Box").addClass($(this).attr("id").slice(0,-5) + "BoxActive");
 });

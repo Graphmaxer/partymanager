@@ -1,7 +1,17 @@
 <?php
 
-	$apiKey = "AIzaSyCWgYLX8xehW16dSrgFnT99Z395EldfOLg";
-	$pageToken = "";
+	require_once("../ignored/apiKey.php");
+	
+	if (isset($_POST["pageToken"])) {
+		$pageToken = $_POST["pageToken"];
+	}
+	else {
+		$pageToken = "";
+	}
+
+	$noResult = false;
+
+	$videoIdListAlreadyAdded = $_POST["videoIdListAlreadyAdded"];
 
 	$search = htmlspecialchars(urlencode($_POST["searchInput"]));
 
@@ -16,7 +26,14 @@
 	if ($totalResults == 0) {
 		$resultsPerPage = 0;
 
-		echo "<h1>Aucun résultat</h1>";
+		$nextPageToken = "";
+
+		echo "<p id='loungeVotingNoResult'>Aucun résultat</p>";
+
+		$noResult = true;
+	}
+	else {
+		$nextPageToken = $decodedJsonVideos -> {"nextPageToken"};
 	}
 
 	for ($i = 0; $i < $resultsPerPage; $i++) {
@@ -34,16 +51,31 @@
 		$duration = new DateInterval($durationISO);
 
 
-		echo'<div class="loungeVotingVideoAndTitleBox">';
-			echo '<img class="videoThumbnail" src="'.$thumbnailLink.'"/>';
-			echo'<h2 class="VideoTitle">'.$title.'</h2>';
-
+		echo '<div class="loungeVotingVideoAndTitleBox" id="'.$videoId.'" style="opacity: 0;">';
+			echo '<img class="loungeVotingThumbnail" src="'.$thumbnailLink.'"/>';
+			
 			if ($duration->format('%H') == "00") {
-				echo '<div class="loungeVotingDuree">'.$duration->format('%I:%S').'</div>';
+				echo '<div class="loungeVotingDuration">'.$duration->format('%I:%S').'</div>';
 			}
 			else {
-				echo '<div class="loungeVotingDuree">'.$duration->format('%H:%I:%S').'</div>';
+				echo '<div class="loungeVotingDuration">'.$duration->format('%H:%I:%S').'</div>';
 			}
-		echo'</div>';
+
+			echo '<div class="loungeVotingVideoTitle">'.$title.'</div>';
+
+			if (in_array($videoId, $videoIdListAlreadyAdded)) {
+				echo '<div class="loungeVotingAdd loungeVotingAddActive">';
+			}
+			else {
+				echo '<div class="loungeVotingAdd">';
+			}
+			
+			echo '</div>';
+		echo '</div>';
 	}
+
+	if ($noResult == false) {
+		echo "<div id='loungeVotingMore' class=".$nextPageToken." style='opacity: 1;'>Voir plus ...</div>";
+	}
+	
 ?>

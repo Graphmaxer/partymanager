@@ -1,189 +1,154 @@
-#joinLounge
-{
+#joinLounge {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
+    display: table;
     width: 90%;
-    height: 50%;
     margin: auto;
-
     transition: ease all .5s;
 }
 
-.joinLoungeHided
-{
+.joinLoungeHided {
     right: -3000px!important;
-
     visibility: hidden;
-
     transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
-
     opacity: 0;
-
     filter: alpha(opacity=0);
 }
 
-#joinLoungeBack
-{
-    display: inline-block;
-
-    margin-top: 15px;
-
-    transition: ease all .3s;
-
-    color: #34495e;
-}
-
-#joinLoungeBack:hover
-{
-    cursor: pointer;
-    transition: ease all .3s;
-
-    color: #7f8c8d;
-}
-
-.loungeListItem
-{
+.loungeListItem {
     font-size: 1.250em;
     line-height: 25px;
-
     display: inline-block;
-
     height: 25px;
     margin: 5px;
     padding: 10px;
-
     transition: ease all .3s;
-
     border: solid 3px #3498db;
     border-radius: 15px;
     background-color: #3498db;
 }
 
-.loungeListItem:hover
-{
+.loungeListItem:hover {
     cursor: pointer;
     transition: ease all .3s;
-
     background-color: #2980b9;
 }
 
-.loungeListItem:active
-{
+.loungeListItem:active {
     transition: ease all .1s;
-
     background-color: #34495e;
 }
 
-.loungeListName
-{
+.loungeListName {
     font-weight: 700;
-
     color: #2c3e50;
 }
 
-.loungeListDescription
-{
+.loungeListDescription {
     color: #ecf0f1;
 }
 
-#passwordPopup
-{
+/***********************
+**** PASSWORD POPUP ****
+************************/
+
+#passwordPopup {
     position: absolute;
     z-index: 2;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
-    width: 350px;
+    max-width: 350px;
+    width: 95%;
     height: 150px;
     margin: auto;
     padding: 5px;
-
     transition: ease all .5s;
-
     color: #ecf0f1;
     border-radius: 10px;
     background-color: #34495e;
     box-shadow: #34495e 2px 2px 2px;
 }
 
-.passwordPopupHided
-{
+.passwordPopupHided {
     top: -100px!important;
-
     visibility: hidden;
-
     transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
-
     opacity: 0;
-
     filter: alpha(opacity=0);
 }
 
-#passwordPopupLoungeTitle
-{
+#passwordPopupLoungeTitle {
     text-decoration: underline;
 }
 
-#passwordPopupLoungeButton
-{
+#passwordPopupUserName {
+    width: calc(90% - 60px);
+}
+
+#passwordPopupLoungePassword {
+    width: calc(80% - 120px);
+}
+
+#passwordPopupLoungeButton {
     font-size: 1em;
     line-height: 20px;
-
     display: inline-block;
-
     width: 200px;
     height: 30px;
     margin-top: 4px;
-
     transition: ease all .3s;
-
     color: #ecf0f1;
     border: solid 3px #3498db;
     border-radius: 15px;
     background-color: #3498db;
 }
 
-#passwordPopupLoungeButton:hover
-{
+#passwordPopupLoungeButton:hover {
     cursor: pointer;
     transition: ease all .3s;
-
     background-color: #2980b9;
 }
 
-#passwordPopupLoungeButton:active
-{
+#passwordPopupLoungeButton:active {
     transition: ease all .1s;
-
     background-color: #34495e;
 }
 
-#passwordPopupLoungeButton:focus
-{
+#passwordPopupLoungeButton:focus {
     outline: 0;
 }
 
-#passwordPopupLoungeBack
-{
+#passwordPopupLoungeBack {
     font-size: .8em;
-
     margin-top: 9px;
-
     transition: ease all .3s;
-
     color: #bdc3c7;
 }
 
-#passwordPopupLoungeBack:hover
-{
+#passwordPopupLoungeBack:hover {
     cursor: pointer;
     transition: ease all .3s;
+    color: #7f8c8d;
+}
 
+/********************
+******* BACK ********
+*********************/
+
+#joinLoungeBack {
+    display: inline-block;
+    margin-top: 15px;
+    transition: ease all .3s;
+    color: #34495e;
+}
+
+#joinLoungeBack:hover {
+    cursor: pointer;
+    transition: ease all .3s;
     color: #7f8c8d;
 }

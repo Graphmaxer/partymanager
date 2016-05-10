@@ -1,0 +1,38 @@
+@media (max-width: 680px) {
+	#logo {
+		height: 10vh!important;
+		width: auto!important;
+	}
+
+	.homeButton {
+		width: 95vw;
+		margin: auto;
+		display: block!important;
+	}
+
+	.homeButton span {
+		width: auto!important;
+	}
+}
+
+@media (min-width: 680px) {
+	.loungeVotingVideoTitle {
+		font-size: 1.6em!important;
+		height: 90%!important;
+	}
+
+	.loungeVotingDuration {
+		font-size: 1em!important;
+	}
+}
+
+@media (max-height: 500px) {
+	#logo {
+		height: 10vh!important;
+		width: auto!important;
+	}
+
+	#home h1 {
+		font-size: 1.5em!important;
+	}
+}

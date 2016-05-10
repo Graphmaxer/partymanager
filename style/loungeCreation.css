@@ -5,7 +5,8 @@
   	bottom: 0;
   	left: 0;
 	margin: auto;
-    height: 50%;
+	width: 100%;
+    display: table;
     -webkit-transition: ease all 0.5s;
 	transition: ease all 0.5s;
 }
@@ -28,20 +29,30 @@
 	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 }
 
+/***************************
+********* CONTENT **********
+***************************/
+
+#loungeCreation h1 {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
 .loungeCreationField {
 	color: #2c3e50;
-	margin: 10px;
-	font-size: 1.250em;
+	margin: 3px;
+	font-size: 1.1em;
 }
 
 #loungeCreationDescription {
-	width: 400px;
+	width: 90%;
+	max-width: 400px;
 }
 
 #loungeCreationButton {
-	height: 100px;
-	font-size: 1.875em;
-	line-height: 100px;
+	height: 10vh;
+	font-size: 1.7em;
+	line-height: 9vh;
 	width: 250px;
 	background-color: #3498db;
 	display: inline-block;
@@ -69,9 +80,13 @@
 	outline: 0;
 }
 
+/************************
+********* BACK **********
+************************/
+
 #loungeCreationBack {
 	display: inline-block;
-	margin-top: 15px;
+	margin-top: 5px;
 	color: #34495e;
 	-webkit-transition: ease all 0.3s;
 	transition: ease all 0.3s;

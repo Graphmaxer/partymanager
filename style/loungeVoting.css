@@ -16,9 +16,13 @@
     filter: alpha(opacity=0);
 }
 
+/***********************
+********* MAIN *********
+***********************/
+
 #loungeVotingMainBox {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     margin-top: 50vh;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -29,99 +33,103 @@
     color: #2c3e50;
 }
 
-#loungeVotingSearchButton {
-    height: 23px;
-    font-size: 1em;
-    line-height: 15px;
-    width: 100px;
-    background-color: #3498db;
+#loungeVotingContainerBox {
     display: inline-block;
-    color: #ecf0f1;
-    border-radius: 15px;
-    border: solid 3px #3498db;
-    -webkit-transition: ease all 0.3s;
-    transition: ease all 0.3s;
-}
-
-#loungeVotingSearchButton:hover {
-    background-color: #2980b9;
-    cursor: pointer;
-    -webkit-transition: ease all 0.3s;
-    transition: ease all 0.3s;
-}
-
-#loungeVotingSearchButton:active {
-    background-color: #34495e;
-    -webkit-transition: ease all 0.1s;
-    transition: ease all 0.1s;
-}
-
-#loungeVotingSearchButton:focus {
-    outline: 0;
-}
-
-#loungeVotingLeftBox {
-    display: inline-block;
-    width: 65%;
-    height: inherit;
-    vertical-align: top;
-    background-color: #273c50;
-}
-
-
-/****************
-*** RIGHT BOX ***
-****************/
-
-#loungeVotingRightBox {
-    display: inline-block;
-    width: 20%;
+    width: 98%;
     height: inherit;
     background-color: #273c50;
 }
 
-#loungeVotingRightButtons {
+
+/***************************
+********* BUTTONS **********
+***************************/
+
+#loungeVotingButtons {
     height: 30px;
+    background-color: #2c3e50;
 }
 
-#loungeVotingRightChatButton {
+#loungeVotingButtons div {
+    cursor: pointer;
+}
+
+#loungeVotingAddMusicButton {
     display: inline-block;
-    float: left;
-    width: 50%;
+    width: 23.5%;
     height: 100%;
 }
 
-#loungeVotingRightChatImage {
+#loungeVotingAddMusicImage {
     height: 100%;
     transition: ease all .3s;
-    background-image: url('../img/chatIcon.png');
+    background-image: url('../img/addMusicIcon.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 27px;
+    background-size: 30px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-#loungeVotingRightChatImage:hover {
-    transition: ease all .3s;
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-}
-
-.loungeVotingRightChatImageActive {
+#loungeVotingAddMusicImage:hover, .loungeVotingAddMusicImageActive {
     transition: ease all .3s!important;
     -webkit-filter: grayscale(0%)!important;
     filter: grayscale(0%)!important;
 }
 
-#loungeVotingRightUserButton {
+#loungeVotingMusicListButton {
     display: inline-block;
-    float: right;
-    width: 50%;
+    width: 23.5%;
     height: 100%;
 }
 
-#loungeVotingRightUserImage {
+#loungeVotingMusicListImage {
+    height: 100%;
+    transition: ease all .3s;
+    background-image: url('../img/musicListIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+#loungeVotingMusicListImage:hover, .loungeVotingMusicListImageActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+#loungeVotingChatButton {
+    display: inline-block;
+    width: 23.5%;
+    height: 100%;
+}
+
+#loungeVotingChatImage {
+    height: 100%;
+    transition: ease all .3s;
+    background-image: url('../img/chatIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+#loungeVotingChatImage:hover, .loungeVotingChatImageActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+#loungeVotingUserListButton {
+    display: inline-block;
+    width: 23.5%;
+    height: 100%;
+}
+
+#loungeVotingUserListImage {
     height: 100%;
     transition: ease all .3s;
     background-image: url('../img/userListIcon.png');
@@ -132,64 +140,299 @@
     filter: grayscale(100%);
 }
 
-#loungeVotingRightUserImage:hover {
-    transition: ease all .3s;
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-}
-
-.loungeVotingRightUserImageActive {
+#loungeVotingUserListImage:hover, .loungeVotingUserListImageActive {
     transition: ease all .3s!important;
     -webkit-filter: grayscale(0%)!important;
     filter: grayscale(0%)!important;
 }
 
-#loungeVotingChatUserBox {
+
+/***************************
+********* CONTENT **********
+***************************/
+
+#loungeVotingContentBox {
+    position: relative;
     overflow: hidden;
     height: calc(100% - 30px);
 }
 
-#loungeVotingChatBox {
-    position: relative;
+/******** ADD MUSIC ********/
+
+#loungeVotingAddMusicBox {
+    position: absolute;
+    right: 100%;
     width: 100%;
     height: 100%;
     transition: ease all .5s;
 }
 
-.loungeVotingChatBoxHided {
+.loungeVotingAddMusicBoxActive {
+    right: 0!important;
     transition: ease all .5s;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
 }
+
+#loungeVotingSearchInput {
+    width: 50%;
+}
+
+#loungeVotingSearchButton {
+    font-size: 1em;
+    line-height: 15px;
+    display: inline-block;
+    width: 100px;
+    height: 23px;
+    transition: ease all .3s;
+    color: #ecf0f1;
+    border: solid 3px #3498db;
+    border-radius: 15px;
+    background-color: #3498db;
+}
+
+#loungeVotingSearchButton:hover {
+    cursor: pointer;
+    transition: ease all .3s;
+    background-color: #2980b9;
+}
+
+#loungeVotingSearchButton:active {
+    transition: ease all .1s;
+    background-color: #34495e;
+}
+
+#loungeVotingSearchButton:focus {
+    outline: 0;
+}
+
+#loungeVotingSearchResult {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    height: calc(100% - 37px);
+}
+
+.loungeVotingVideoAndTitleBox {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.loungeVotingThumbnail {
+    float: left;
+    width: 20%;
+    height: auto;
+}
+
+.loungeVotingDuration {
+    font-family: 'Work Sans';
+    font-size: .7em;
+    font-weight: 700;
+    position: absolute;
+    right: 80.5%;
+    bottom: 2px;
+    padding: 3px;
+    color: #2980b9;
+    border-radius: 10px;
+    background-color: rgba(39, 60, 80, .85);
+}
+
+.loungeVotingVideoTitle {
+    font-size: 0.9em;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 21%;
+    display: -webkit-box;
+    overflow: hidden;
+    width: 67%;
+    height: 80%;
+    min-height: 32px;
+    padding: 0 6px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    text-overflow: ellipsis;
+    color: #2980b9;
+    border-radius: 20px 0;
+    background-color: #36495C;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.loungeVotingAdd {
+    width: 8.5%;
+    min-width: 20px;
+    height: 100%;
+    position: absolute;
+    right: 0.2%;
+    background-image: url("../img/addIcon.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 70%;
+    background-position: center;
+    transition: ease all .3s;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    cursor: pointer;
+}
+
+.loungeVotingAdd:hover {
+    transition: ease all .3s;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.loungeVotingAddActive {
+    background-image: url("../img/checkIcon.png");
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+#loungeVotingNoResult {
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loungeVotingMore {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #95a5a6;
+    transition: ease all .3s;
+    margin-bottom: 5px;
+}
+
+#loungeVotingMore:hover {
+    color: #bdc3c7;
+    transition: ease all .3s;
+}
+
+/******** MUSIC LIST ********/
+
+#loungeVotingMusicListBox {
+    position: absolute;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: ease all .5s;
+}
+
+.loungeVotingMusicListBoxActive {
+    right: 0!important;
+    transition: ease all .5s;
+}
+
+.loungeVotingVoteBox {
+    width: 7%;
+    min-width: 20px;
+    height: 100%;
+    position: absolute;
+    right: 1%;
+}
+
+.loungeVotingUpVote {
+    background-image: url("../img/upVote.png");
+    width: 100%;
+    height: 40%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: ease all .3s;
+    -webkit-filter: grayscale(100%)!important;
+    filter: grayscale(100%)!important;
+    cursor: pointer;
+}
+
+.loungeVotingUpVote:hover, .loungeVotingUpVoteActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+.loungeVotingScore {
+    font-size: 0.6em;
+}
+
+.loungeVotingDownVote {
+    position: absolute;
+    background-image: url("../img/downVote.png");
+    width: 100%;
+    height: 40%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    transition: ease all .3s;
+    -webkit-filter: grayscale(100%)!important;
+    filter: grayscale(100%)!important;
+    cursor: pointer;
+}
+
+.loungeVotingDownVote:hover, .loungeVotingDownVoteActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+/*********** CHAT ***********/
+
+#loungeVotingChatBox {
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    transition: ease all .5s;
+}
+
+.loungeVotingChatBoxActive {
+    left: 0!important;
+    transition: ease all .5s;
+}
+
+/******** USER LIST ********/
 
 #loungeVotingUserListBox {
-    position: relative;
+    position: absolute;
+    left: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     width: 100%;
     height: 100%;
     transition: ease all .5s;
-    overflow-y: auto;
-    overflow-x: hidden;
     word-break: break-word;
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
 }
 
-.loungeVotingUserListBoxHided {
+.loungeVotingUserListBoxActive {
+    left: 0!important;
     transition: ease all .5s;
-    -webkit-transform: translateY(-100%) translateX(100%)!important;
-    transform: translateY(-100%) translateX(100%)!important;
 }
 
 #loungeVotingUserListBox p {
+    font-size: .9em;
     margin-top: 2px;
     margin-bottom: 5px;
-    font-size: 0.9em;
     color: #7f8c8d;
 }
 
+
+/************************
+********* BACK **********
+************************/
+
 #loungeVotingBack {
     font-size: .8em;
-    margin-top: 0px;
+    margin-top: 0;
     transition: ease all .3s;
     color: #34495e;
 }
@@ -198,55 +441,4 @@
     cursor: pointer;
     transition: ease all .3s;
     color: #7f8c8d;
-}
-
-#loungeVotingSearchResult {
-    overflow: auto;
-    width: 100%;
-    height: calc(100% - 37px);
-}
-
-.loungeVotingVideoAndTitleBox {
-    width: 100%;
-    height: 10vh;
-    display: inline-block;
-    position: relative;
-}
-
-.videoThumbnail {
-    float: left;
-    width: 20%;
-    height: auto;
-}
-
-.VideoTitle {
-    text-align:center;
-    left:22%;
-    color: #2980b9;
-    position: absolute;
-    font-family:"Work Sans";
-    font-weight: 700;
-    background-color: rgba(189, 195, 199, 0.1);
-    -moz-border-radius:10px 0;
-    -webkit-border-radius:10px 0;
-    border-radius:30px 0;
-    width:70%;
-    height:inherit;
-    
-}
-
-
-.loungeVotingDuree {
-    position: absolute;
-    top:75%;
-    left:12.5%;
-    background-color: rgba(39, 60, 80, 0.8);
-    color:#2980b9;
-    width:7%;
-    height:auto;
-    font-size:80%;
-    line-height:3vh;
-    border-radius:10px;
-    font-family:"Work Sans";
-    font-weight: 700;
 }
