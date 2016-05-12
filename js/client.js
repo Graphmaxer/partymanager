@@ -136,7 +136,7 @@ socket.on("loungeVotingOpened", function(loungeInfo) {
 
     isUserConnected = true;
 
-    /*FOR DEBUG (TEMP) Cookies.set(loungeInfo.loungeName, socket.io.engine.id, { "expires": 1 });*/
+    Cookies.set(loungeInfo.loungeName, socket.io.engine.id, { "expires": 1 });
 });
 
 
@@ -149,7 +149,7 @@ $("#loungeVotingBack").click(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
         $("#loungeVotingSearchResult").html("");
-        $(".musicList").html();
+        $(".musicList").html("");
         $(".chat").html("");
         $(".userList").html("");
         socket.emit("userDisconnection");
@@ -354,6 +354,13 @@ socket.on("retrieveNewDislikedMusic", function(videoId) {
 });
 
 socket.on("retrieveLikedAndDislikedMusic", function(likedAndDislikedMusic) {
+    for (var i = 0; i < likedAndDislikedMusic.likedMusic; i++) {
+        $("#loungeVotingMusicListBox > .musicList").find("#" + likedAndDislikedMusic.likedMusic[i] + " > .loungeVotingVoteBox > .loungeVotingUpVote").addClass("loungeVotingUpVoteActive");
+    }
+    
+    for (var i = 0; i < likedAndDislikedMusic.dislikedMusic; i++) {
+        $("#loungeVotingMusicListBox > .musicList").find("#" + likedAndDislikedMusic.dislikedMusic[i] + " > .loungeVotingVoteBox > .loungeVotingDownVote").addClass("loungeVotingDownVoteActive");
+    }
 
 });
 
