@@ -24,7 +24,7 @@
 
 .loungeHostingSpeakers {
     display: inline-block;
-    width: calc(100% - 5vw);
+    width: calc(100% - 4vw);
     height: inherit;
     margin-right: auto;
     margin-left: auto;
@@ -34,8 +34,8 @@
 
 #loungeHostingTrapezeLeft {
     display: inline-block;
-    height: 45vh;
-    border-left: 5vw solid #7f8d8e;
+    height: 50vh;
+    border-left: 4vw solid #7f8d8e;
 	border-top: 15vh solid transparent;
 	border-bottom: 15vh solid transparent;
 	width: 0;
@@ -45,15 +45,15 @@
 #loungeHostingScreen {
     display: inline-block;
     width: 35%;
-    height: 45vh;
+    height: 50vh;
     margin-top: 15vh;
     background-color: #1a1b1f;
 }
 
 #loungeHostingTrapezeRight {
     display: inline-block;
-    height: 45vh;
-    border-right: 5vw solid #7f8d8e;
+    height: 50vh;
+    border-right: 4vw solid #7f8d8e;
 	border-top: 15vh solid transparent;
 	border-bottom: 15vh solid transparent;
 	width: 0;
@@ -69,11 +69,114 @@
 
 .loungeHostingSpeakerAndTrapeze {
     display: inline-block;
-    width: 25%;
-    height: 75vh;
+    width: 30%;
+    height: 80vh;
     vertical-align: top;
 }
 
+
+/********************
+*** MUSIC LISTING ***
+********************/
+
+.loungeHostingVideoAndTitleBox {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.loungeHostingThumbnail {
+    float: left;
+    width: 25%;
+    height: auto;
+}
+
+.loungeHostingDuration {
+    font-family: 'Work Sans';
+    font-size: .7em;
+    font-weight: 700;
+    position: absolute;
+    right: 75.5%;
+    bottom: 2px;
+    padding: 3px;
+    color: #2980b9;
+    border-radius: 10px;
+    background-color: rgba(39, 60, 80, .85);
+}
+
+.loungeHostingVideoTitle {
+    font-size: 1em;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 25.5%;
+    display: -webkit-box;
+    overflow: hidden;
+    width: 66%;
+    height: 85%;
+    min-height: 32px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    text-overflow: ellipsis;
+    color: #2980b9;
+    border-radius: 20px 0;
+    background-color: #36495C;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.loungeHostingVoteBox {
+    width: 7%;
+    min-width: 20px;
+    height: 100%;
+    position: absolute;
+    right: 1%;
+}
+
+.loungeHostingUpVote {
+    background-image: url("../img/upVote.png");
+    width: 100%;
+    height: 40%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: ease all .3s;
+    -webkit-filter: grayscale(100%)!important;
+    filter: grayscale(100%)!important;
+    cursor: pointer;
+}
+
+.loungeHostingUpVote:hover, .loungeHostingUpVoteActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
+
+.loungeHostingScore {
+    font-size: 0.6em;
+}
+
+.loungeHostingDownVote {
+    position: absolute;
+    background-image: url("../img/downVote.png");
+    width: 100%;
+    height: 40%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    transition: ease all .3s;
+    -webkit-filter: grayscale(100%)!important;
+    filter: grayscale(100%)!important;
+    cursor: pointer;
+}
+
+.loungeHostingDownVote:hover, .loungeHostingDownVoteActive {
+    transition: ease all .3s!important;
+    -webkit-filter: grayscale(0%)!important;
+    filter: grayscale(0%)!important;
+}
 
 /****************
 *** RIGHT BOX ***

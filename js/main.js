@@ -3,7 +3,11 @@ $(document).keydown(function(objEvent) {
     if (objEvent.keyCode == 9 && isUserConnected) {
         objEvent.preventDefault();
     }
-})
+});
+
+$('body').bind('touchmove', function (ev) { 
+  ev.preventDefault();
+});
 
 //////////
 // HOME //

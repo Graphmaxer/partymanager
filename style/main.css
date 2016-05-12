@@ -146,6 +146,8 @@ p {
     list-style-type: none;
     padding-left: 0px;
     margin: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .userListName {

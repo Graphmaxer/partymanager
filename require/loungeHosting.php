@@ -1,7 +1,9 @@
 <div id="loungeHosting" class="loungeHostingHided">
 	<div id="loungeHostingMainBox">
 		<div class="loungeHostingSpeakerAndTrapeze">
-			<div class="loungeHostingSpeakers">
+			<div class="loungeHostingSpeakers" id="loungeHostingLeftSpeaker">
+				<div class="musicList">				
+				</div>
 			</div><!--
 		 --><div id="loungeHostingTrapezeLeft">
 			</div>

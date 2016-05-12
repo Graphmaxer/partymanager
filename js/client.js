@@ -168,22 +168,41 @@ $("#loungeVotingBack").click(function() {
 //////////////////
 
 socket.on("retrieveUsers", function(users) {
+    var usersList = "";
     for (var i = 0; i < users.length; i++) {
         if (users[i].isHost == true) {
-            $(".userList").append("<li class='userListHostName'>" + users[i].userName + "</li>");
+            usersList += "<li class='userListHostName'>" + users[i].userName + "</li>";
         } else {
-            $(".userList").append("<li class='userListName'>" + users[i].userName + "</li>");
+             usersList += "<li class='userListName'>" + users[i].userName + "</li>";
         }
+    }
+
+    if (isUserHost) {
+        $("#loungeHostingUserListBox > .userList").html(usersList);
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingUserListBox > .userList").html(usersList);
     }
 });
 
 socket.on("retrieveNewUser", function(userName) {
-    $(".userList").append("<li class='userListName' style='display: none;'>" + userName + "</li>");
-    $(".userListName:hidden").show("slow");
+    if (isUserHost) {
+        $("#loungeHostingUserListBox > .userList").append("<li class='userListName' style='display: none;'>" + userName + "</li>");
+        $("#loungeHostingUserListBox .userListName:hidden").show("slow");
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingUserListBox > .userList").append("<li class='userListName' style='display: none;'>" + userName + "</li>");
+        $("#loungeVotingUserListBox .userListName:hidden").show("slow");
+    }
 });
 
-socket.on("userListDisconnection", function(userName) {
-    $(".userList li:contains('" + userName + "')").hide("slow", function() { this.remove(); });
+socket.on("userListDisconnection", function(userName) {   
+    if (isUserHost) {
+        $("#loungeHostingUserListBox > .userList li:contains('" + userName + "')").hide("slow", function() { this.remove(); });
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingUserListBox > .userList li:contains('" + userName + "')").hide("slow", function() { this.remove(); });
+    }
 });
 
 
@@ -201,19 +220,32 @@ socket.on("retrieveMessages", function(messages) {
         }
     }
 
-    $(".chat").html(messageList);
+    if (isUserHost) {
+        $("#loungeHostingChatBox > .chat").html(messageList);
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingChatBox > .chat").html(messageList);
+    }
+    
 });
 
 socket.on("retrieveNewMessage", function(message) {
     if (message.isHost == true) {
-        $(".chat").append("<div class='chatHostMessage' style='opacity: 0;'><span class='chatHostMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatHostMessageContent'>" + message.messageContent + "</span></div>");
+        var newMessage = "<div class='chatHostMessage' style='opacity: 0;'><span class='chatHostMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatHostMessageContent'>" + message.messageContent + "</span></div>";
     } else {
-        $(".chat").append("<div class='chatMessage' style='opacity: 0;'><span class='chatMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatMessageContent'>" + message.messageContent + "</span></div>");
+        var newMessage = "<div class='chatMessage' style='opacity: 0;'><span class='chatMessageAuthor'>" + message.messageAuthor + " : </span><span class='chatMessageContent'>" + message.messageContent + "</span></div>";
     }
 
-    $(".chat div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
-
-    $(".chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
+    if (isUserHost) {
+        $("#loungeHostingChatBox > .chat").append(newMessage);
+        $("#loungeHostingChatBox > .chat div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
+        $("#loungeHostingChatBox > .chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingChatBox > .chat").append(newMessage);
+        $("#loungeVotingChatBox > .chat div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
+        $("#loungeVotingChatBox > .chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
+    }
 });
 
 $(".chatSendButton").click(function() {
@@ -223,9 +255,9 @@ $(".chatSendButton").click(function() {
 });
 
 
-///////////////////
-// MUSIC SEARCH  //
-///////////////////
+//////////////////
+// MUSIC SEARCH //
+//////////////////
 
 var searchKeyword = "";
 
@@ -307,16 +339,30 @@ socket.on("retrieveMusic", function(musicList) {
                 var score = "<div class='loungeVotingScore'>" + musicList[i].score + "</div>";
             }
 
-            $(".musicList").append("<div class='loungeVotingVideoAndTitleBox' id='" + musicList[i].videoId + "'>" +
-                "<img class='loungeVotingThumbnail' src='" + musicList[i].thumbnailLink + "'/>" +
-                "<div class='loungeVotingDuration'>" + musicList[i].duration + "</div>" +
-                "<div class='loungeVotingVideoTitle'>" + musicList[i].title + "</div>" +
-                "<div class='loungeVotingVoteBox'>" +
-                "<div class='loungeVotingUpVote'></div>" +
-                score +
-                "<div class='loungeVotingDownVote'></div>" +
-                "</div>" +
-                "</div>");
+            if (isUserHost) {
+                $(".loungeHostingSpeakers > .musicList").append("<div class='loungeHostingVideoAndTitleBox' id='" + musicList[i].videoId + "'>" +
+                    "<img class='loungeHostingThumbnail' src='" + musicList[i].thumbnailLink + "'/>" +
+                    "<div class='loungeHostingDuration'>" + musicList[i].duration + "</div>" +
+                    "<div class='loungeHostingVideoTitle'>" + musicList[i].title + "</div>" +
+                    "<div class='loungeHostingVoteBox'>" +
+                    "<div class='loungeHostingUpVote'></div>" +
+                    score +
+                    "<div class='loungeHostingDownVote'></div>" +
+                    "</div>" +
+                    "</div>");
+            }
+            else if (isUserConnected) {
+                $("#loungeVotingMusicListBox > .musicList").append("<div class='loungeVotingVideoAndTitleBox' id='" + musicList[i].videoId + "'>" +
+                    "<img class='loungeVotingThumbnail' src='" + musicList[i].thumbnailLink + "'/>" +
+                    "<div class='loungeVotingDuration'>" + musicList[i].duration + "</div>" +
+                    "<div class='loungeVotingVideoTitle'>" + musicList[i].title + "</div>" +
+                    "<div class='loungeVotingVoteBox'>" +
+                    "<div class='loungeVotingUpVote'></div>" +
+                    score +
+                    "<div class='loungeVotingDownVote'></div>" +
+                    "</div>" +
+                    "</div>");
+            }
         }
     }
 });
@@ -330,27 +376,56 @@ socket.on("retrieveNewMusic", function(videoInfo) {
 
     $("#loungeVotingSearchResult").find("#" + videoInfo.videoId + " > .loungeVotingAdd").addClass("loungeVotingAddActive");
 
-    $(".musicList").append("<div class='loungeVotingVideoAndTitleBox' id='" + videoInfo.videoId + "' style='opacity: 0;'>" +
-        "<img class='loungeVotingThumbnail' src='" + videoInfo.thumbnailLink + "'/>" +
-        "<div class='loungeVotingDuration'>" + videoInfo.duration + "</div>" +
-        "<div class='loungeVotingVideoTitle'>" + videoInfo.title + "</div>" +
-        "<div class='loungeVotingVoteBox'>" +
-        "<div class='loungeVotingUpVote'></div>" +
-        "<div class='loungeVotingScore' style='color: #2ecc71;'>" + videoInfo.score + "</div>" +
-        "<div class='loungeVotingDownVote'></div>" +
-        "</div>" +
-        "</div>");
-    $(".musicList div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
+    if (isUserHost) {
+        $(".loungeHostingSpeakers > .musicList").append("<div class='loungeHostingVideoAndTitleBox' id='" + videoInfo.videoId + "' style='opacity: 0;'>" +
+            "<img class='loungeHostingThumbnail' src='" + videoInfo.thumbnailLink + "'/>" +
+            "<div class='loungeHostingDeleteButton'><div/>" +
+            "<div class='loungeHostingDuration'>" + videoInfo.duration + "</div>" +
+            "<div class='loungeHostingVideoTitle'>" + videoInfo.title + "</div>" +
+            "<div class='loungeHostingVoteBox'>" +
+            "<div class='loungeHostingUpVote'></div>" +
+            "<div class='loungeHostingScore' style='color: #2ecc71;'>" + videoInfo.score + "</div>" +
+            "<div class='loungeHostingDownVote'></div>" +
+            "</div>" +
+            "</div>");
+        $(".loungeHostingSpeakers > .musicList div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingMusicListBox > .musicList").append("<div class='loungeVotingVideoAndTitleBox' id='" + videoInfo.videoId + "' style='opacity: 0;'>" +
+            "<img class='loungeVotingThumbnail' src='" + videoInfo.thumbnailLink + "'/>" +
+            "<div class='loungeVotingDuration'>" + videoInfo.duration + "</div>" +
+            "<div class='loungeVotingVideoTitle'>" + videoInfo.title + "</div>" +
+            "<div class='loungeVotingVoteBox'>" +
+            "<div class='loungeVotingUpVote'></div>" +
+            "<div class='loungeVotingScore' style='color: #2ecc71;'>" + videoInfo.score + "</div>" +
+            "<div class='loungeVotingDownVote'></div>" +
+            "</div>" +
+            "</div>");
+        $("#loungeVotingMusicListBox > .musicList div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
+    }
+    
 });
 
 socket.on("retrieveNewLikedMusic", function(videoId) {
-    $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingDownVote").removeClass("loungeVotingDownVoteActive");
-    $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingUpVote").addClass("loungeVotingUpVoteActive");
+    if (isUserHost) {
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingDownVote").removeClass("loungeHostingDownVoteActive");
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingUpVote").addClass("loungeHostingUpVoteActive");
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingDownVote").removeClass("loungeVotingDownVoteActive");
+        $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingUpVote").addClass("loungeVotingUpVoteActive");
+    }   
 });
 
 socket.on("retrieveNewDislikedMusic", function(videoId) {
-    $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingUpVote").removeClass("loungeVotingUpVoteActive");
-    $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingDownVote").addClass("loungeVotingDownVoteActive");
+    if (isUserHost) {
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingUpVote").removeClass("loungeHostingUpVoteActive");
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingDownVote").addClass("loungeHostingDownVoteActive");
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingUpVote").removeClass("loungeVotingUpVoteActive");
+        $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingDownVote").addClass("loungeVotingDownVoteActive");
+    }
 });
 
 socket.on("retrieveLikedAndDislikedMusic", function(likedAndDislikedMusic) {
@@ -368,35 +443,57 @@ socket.on("retrieveLikedAndDislikedMusic", function(likedAndDislikedMusic) {
 // VOTE //
 //////////
 
-$(".musicList").on("click", ".loungeVotingUpVote", function() {
+$("#loungeVotingMusicListBox > .musicList").on("click", ".loungeVotingUpVote", function() {
     if (!$(this).hasClass("loungeVotingUpVoteActive")) {
         $(this).addClass("loungeVotingUpVoteActive");
         socket.emit("upVote", $(this).parent().parent().attr("id"));
     }
 });
 
-$(".musicList").on("click", ".loungeVotingDownVote", function() {
+$("#loungeVotingMusicListBox > .musicList").on("click", ".loungeVotingDownVote", function() {
     if (!$(this).hasClass("loungeVotingDownVoteActive")) {
         $(this).addClass("loungeVotingDownVoteActive");
         socket.emit("downVote", $(this).parent().parent().attr("id"));
     }
 });
 
+
+$(".loungeHostingSpeakers > .musicList").on("click", ".loungeHostingUpVote", function() {
+    if (!$(this).hasClass("loungeHostingUpVoteActive")) {
+        $(this).addClass("loungeHostingUpVoteActive");
+        socket.emit("upVote", $(this).parent().parent().attr("id"));
+    }
+});
+
+$(".loungeHostingSpeakers > .musicList").on("click", ".loungeHostingDownVote", function() {
+    if (!$(this).hasClass("loungeHostingDownVoteActive")) {
+        $(this).addClass("loungeHostingDownVoteActive");
+        socket.emit("downVote", $(this).parent().parent().attr("id"));
+    }
+});
+
+
 socket.on("addScore", function(videoId) {
-    if (isUserConnected) {
+    if (isUserHost) {
+        var actualScore = parseInt($(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text());
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text(actualScore + 1);
+    }
+    else if (isUserConnected) {
         var actualScore = parseInt($("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text());
         $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text(actualScore + 1);
     }
 });
 
 socket.on("minusScore", function(videoId) {
-    if (isUserConnected) {
+    if (isUserHost) {
+        var actualScore = parseInt($(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text());
+        $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text(actualScore - 1);
+    }
+    else if (isUserConnected) {
         var actualScore = parseInt($("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text());
         $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text(actualScore - 1);
     }
 });
-
-
 
 
 ///////////////////
@@ -418,6 +515,8 @@ socket.on("loungeClosedForUsers", function() {
     setTimeout(function() {
         $("#loungeVotingActualLoungeName").html("");
         $("#loungeVotingUserName").html("");
+        $("#loungeVotingSearchResult").html("");
+        $(".musicList").html("");
         $(".chat").html("");
         $(".userList").html("");
         socket.emit("userDisconnection");
