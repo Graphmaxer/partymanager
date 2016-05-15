@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="style/chat.css"/>
 	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="js/lib/socket.io-1.4.3.js"></script>
-	<script type="text/javascript" src="js/lib/js.cookie.js"></script>	
+	<script type="text/javascript" src="js/lib/js.cookie.js"></script>
 </head>
 <body>
 	<script> 
@@ -31,7 +31,7 @@
 	
 	<img id="logo" src="img/PartyManagerLogo.png" alt="PartyManager Logo"/><br/>
 
-	<div id="errorBox" class="errorBoxHided"></div>
+	<div id="errorBox"></div>
 
 	<?php require_once("require/home.php");
 

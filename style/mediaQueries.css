@@ -18,11 +18,14 @@
 @media (min-width: 680px) {
 	.loungeVotingVideoTitle {
 		font-size: 1.6em!important;
-		height: 90%!important;
 	}
 
 	.loungeVotingDuration {
 		font-size: 1em!important;
+	}
+
+	.loungeVotingScore {
+		font-size: .9em!important;
 	}
 }
 

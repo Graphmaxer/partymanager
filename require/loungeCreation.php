@@ -3,12 +3,12 @@
 	<form onsubmit="return(false)">
 		<div class="loungeCreationField">
 			<label for="loungeCreationName">Nom du salon : </label>
-			<input type="text" id="loungeCreationName" pattern="[a-zA-Z0-9 ]+" maxlength="24" required/>
+			<input type="text" id="loungeCreationName" pattern="[a-zA-Z0-9\u00C0-\u017F ]+" maxlength="24" required/>
 		</div>
 
 		<div class="loungeCreationField">
 			<label for="loungeCreationHostName">Votre nom : </label>
-			<input type="text" id="loungeCreationHostName" pattern="[a-zA-Z0-9]+" maxlength="24" required/>
+			<input type="text" id="loungeCreationHostName" pattern="[a-zA-Z0-9\u00C0-\u017F]+" maxlength="24" required/>
 		</div>
 
 		<div class="loungeCreationField">
@@ -18,7 +18,7 @@
 
 		<div class="loungeCreationField">
 			<label for="loungeCreationDescription">Courte description du salon (optionnelle) :</label><br/>
-			<input type="text" id="loungeCreationDescription" pattern="[a-zA-Z0-9 ]+" maxlength="39"></input>
+			<input type="text" id="loungeCreationDescription" pattern="[a-zA-Z0-9\u00C0-\u017F ]+" maxlength="39"></input>
 		</div>
 
 		<button id="loungeCreationButton" type="submit">Créer le salon</button>

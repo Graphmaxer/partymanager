@@ -71,3 +71,9 @@
 .chatSendButton:focus {
 	outline: 0;
 }
+
+.chatNoMessage {
+	color: #3498db;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

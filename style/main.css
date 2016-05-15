@@ -64,7 +64,7 @@ p {
     background-color: #e74c3c;
     left: 0;
     right: 0;
-    top: 0;
+    top: -1px;
     width: 90%;
     margin: auto;
     z-index: 99;
@@ -75,15 +75,6 @@ p {
     border-bottom: solid 1px #c0392b;
     -webkit-transition: ease all 0.5s;
     transition: ease all 0.5s;
-}
-
-.errorBoxHided {
-    top: -100px!important;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    visibility: hidden;
-    -webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-    transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
 }
 
 .errorMessage {
@@ -169,6 +160,12 @@ p {
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.loungeHostingNoMusic {
+    color: #3498db;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /************************

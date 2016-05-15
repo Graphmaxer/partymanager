@@ -14,20 +14,18 @@ else if (openShiftRegex.test(currentUrl))
 
 var socket = io.connect(nodeJsServerUrl);
 
-
 ///////////////////
 // ERROR HANDLER //
 ///////////////////
 
 socket.on("errorMessage", function(errorMessage) {
-    $("#errorBox").append("<div class='errorMessage'>Erreur : " + errorMessage + "</div>").removeClass("errorBoxHided");
+    $("#errorBox").append("<div class='errorMessage' style='display: none;'>Erreur : " + errorMessage + "</div>");
+    $("#errorBox .errorMessage:hidden").show("slow");
 
     setTimeout(function() {
-        $("#errorBox").addClass("errorBoxHided");
-    }, 4000);
-
-    setTimeout(function() {
-        $("#errorBox").children("div:first").remove();
+        $("#errorBox").children("div:first").hide("slow", function() {
+            $(this).remove();
+        });
     }, 4500);
 });
 
@@ -41,9 +39,9 @@ $("#loungeCreationButton").click(function() {
 });
 
 
-/////////////////////////
-// OPEN LOUNGE HOSTING //
-/////////////////////////
+////////////////////
+// LOUNGE HOSTING //
+////////////////////
 
 var isUserHost = false;
 
@@ -53,6 +51,10 @@ socket.on("openLoungeHosting", function() {
     $("#logo").addClass("logoReduced");
 
     isUserHost = true;
+});
+
+$("#loungeHostingLeftSpeaker").on("click", ".loungeHostingDeleteButton", function() {
+    socket.emit("removeMusic", $(this).parent().attr("id"));
 });
 
 
@@ -67,7 +69,13 @@ socket.on("retrieveLounges", function(lounges) {
         loungeList = "<p>Pas de salon</p>";
     } else {
         for (var i = 0; i < lounges.length; i++) {
-            loungeList += "<div class='loungeListItem'><span class='loungeListName'>" + lounges[i].loungeName + " : </span><span class='loungeListDescription'>" + lounges[i].loungeDescription + "</span></div>";
+            if (lounges[i].loungeDescription == "") {
+                loungeList += "<div class='loungeListItem' id='" + lounges[i].loungeName + "''><span class='loungeListName'>" + lounges[i].loungeName + "</span></div>";
+            }
+            else {
+                loungeList += "<div class='loungeListItem' id='" + lounges[i].loungeName + "''><span class='loungeListName'>" + lounges[i].loungeName + " : </span><span class='loungeListDescription'>" + lounges[i].loungeDescription + "</span></div>";
+            }
+            
         }
     }
     $("#loungeList").html(loungeList);
@@ -76,12 +84,19 @@ socket.on("retrieveLounges", function(lounges) {
 
 socket.on("retrieveNewLounge", function(lounge) {
     $("#loungeList > p").remove();
-    $("#loungeList").append("<div class='loungeListItem' style='opacity: 0;'><span class='loungeListName'>" + lounge.loungeName + " : </span><span class='loungeListDescription'>" + lounge.loungeDescription + "</span></div>");
+
+    if (lounge.loungeDescription == "") {
+        $("#loungeList").append("<div class='loungeListItem' id='" + lounge.loungeName + "'' style='opacity: 0;'><span class='loungeListName'>" + lounge.loungeName + "</span></div>");
+    }
+    else {
+        $("#loungeList").append("<div class='loungeListItem' id='" + lounge.loungeName + "'' style='opacity: 0;'><span class='loungeListName'>" + lounge.loungeName + " : </span><span class='loungeListDescription'>" + lounge.loungeDescription + "</span></div>");
+    }
+    
     $(".loungeListItem[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
 });
 
 socket.on("loungeDeleted", function(loungeName) {
-    $(".loungeListItem:contains('" + loungeName + " : ')").animate({ "opacity": "0" }, "slow", function() {
+    $(".loungeListItem[id='" + loungeName + "']").animate({ "opacity": "0" }, "slow", function() {
         $(this).remove();
 
         if ($("#loungeList > div").length == 0) {
@@ -103,9 +118,9 @@ $("#loungeList").on("click", ".loungeListItem", function() {
     $("#passwordPopup").removeClass("passwordPopupHided");
     setTimeout(function() {
         $("#passwordPopupUserName").focus();
-    }, 50);
+    }, 100);
 
-    $("#passwordPopupLoungeName").html($(this).find(":first-child").text().slice(0, -3));
+    $("#passwordPopupLoungeName").html($(this).attr("id"));
 });
 
 $("#passwordPopupLoungeBack").click(function() {
@@ -152,8 +167,8 @@ $("#loungeVotingBack").click(function() {
         $(".musicList").html("");
         $(".chat").html("");
         $(".userList").html("");
+        videoIdListAlreadyAdded = [];
         socket.emit("userDisconnection");
-
     }, 500);
     $("#joinLounge").removeClass("joinLoungeHided");
     $("#loungeVoting").addClass("loungeVotingHided");
@@ -212,6 +227,10 @@ socket.on("userListDisconnection", function(userName) {
 
 socket.on("retrieveMessages", function(messages) {
     var messageList = "";
+    if (messages.length == 0) {
+        messageList = "<p class='chatNoMessage'>Aucun message</p>";
+    }
+
     for (var i = 0; i < messages.length; i++) {
         if (messages[i].isHost == true) {
             messageList += "<div class='chatHostMessage'><span class='chatHostMessageAuthor'>" + messages[i].messageAuthor + " : </span><span class='chatHostMessageContent'>" + messages[i].messageContent + "</span></div>";
@@ -220,7 +239,7 @@ socket.on("retrieveMessages", function(messages) {
         }
     }
 
-    if (isUserHost) {
+    if (isUserHost) { 
         $("#loungeHostingChatBox > .chat").html(messageList);
     }
     else if (isUserConnected) {
@@ -237,11 +256,21 @@ socket.on("retrieveNewMessage", function(message) {
     }
 
     if (isUserHost) {
+        if ($("#loungeHostingChatBox > .chat").find(".chatNoMessage").length == 1) {
+            $("#loungeHostingChatBox .chatNoMessage").hide("slow", function() {
+                $(this).remove();
+            });
+        }
         $("#loungeHostingChatBox > .chat").append(newMessage);
         $("#loungeHostingChatBox > .chat div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
         $("#loungeHostingChatBox > .chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
     }
     else if (isUserConnected) {
+        if ($("#loungeVotingChatBox > .chat").find(".chatNoMessage").length == 1) {
+            $("#loungeVotingChatBox .chatNoMessage").hide("slow", function() {
+                $(this).remove();
+            });
+        }
         $("#loungeVotingChatBox > .chat").append(newMessage);
         $("#loungeVotingChatBox > .chat div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
         $("#loungeVotingChatBox > .chat").animate({ scrollTop: $(".chat").prop("scrollHeight") }, 300);
@@ -280,7 +309,7 @@ $("#loungeVotingSearchResult").on("click", "#loungeVotingMore", function() {
 
     var pageToken = $("#loungeVotingMore").attr("class");
 
-    $("#loungeVotingMore").fadeOut("slow", function() {
+    $("#loungeVotingMore").hide("slow", function() {
         $("#loungeVotingMore").remove();
     });
 
@@ -309,6 +338,8 @@ $("#loungeVotingSearchResult").on("click", ".loungeVotingAdd", function() {
     if (!$(this).hasClass("loungeVotingAddActive")) {
         $(this).addClass("loungeVotingAddActive");
         socket.emit("musicAdded", $(this).parent().attr("id"));
+
+        videoIdListAlreadyAdded.push($(this).parent().attr("id"));
     }
 });
 
@@ -323,7 +354,7 @@ socket.on("retrieveMusic", function(musicList) {
     if (musicList.length == 0) {
         videoIdListAlreadyAdded = [""];
 
-        $(".musicList").html("<p class='loungeVotingNoMusic'>Aucune musique</p>");
+        $("#loungeVotingMusicListBox > .musicList").html("<p class='loungeVotingNoMusic'>Aucune musique</p>");
     } 
     else {
         for (var i = 0; i < musicList.length; i++) {
@@ -342,6 +373,7 @@ socket.on("retrieveMusic", function(musicList) {
             if (isUserHost) {
                 $(".loungeHostingSpeakers > .musicList").append("<div class='loungeHostingVideoAndTitleBox' id='" + musicList[i].videoId + "'>" +
                     "<img class='loungeHostingThumbnail' src='" + musicList[i].thumbnailLink + "'/>" +
+                    "<div class='loungeHostingDeleteButton'></div>" +
                     "<div class='loungeHostingDuration'>" + musicList[i].duration + "</div>" +
                     "<div class='loungeHostingVideoTitle'>" + musicList[i].title + "</div>" +
                     "<div class='loungeHostingVoteBox'>" +
@@ -368,18 +400,19 @@ socket.on("retrieveMusic", function(musicList) {
 });
 
 socket.on("retrieveNewMusic", function(videoInfo) {
-    if ($(".musicList").find(".loungeVotingNoMusic").length == 1) {
-        $(".loungeVotingNoMusic").fadeOut("slow", function() {
-            $(this).remove();
-        });
-    }
-
     $("#loungeVotingSearchResult").find("#" + videoInfo.videoId + " > .loungeVotingAdd").addClass("loungeVotingAddActive");
 
     if (isUserHost) {
+        if ($(".loungeHostingSpeakers > .musicList").find(".loungeHostingNoMusic").length == 1) {
+            $(".loungeHostingSpeakers .loungeHostingNoMusic").hide("slow", function() {
+                $(this).remove();
+                player.loadVideoById(videoInfo.videoId);
+            });     
+        }
+
         $(".loungeHostingSpeakers > .musicList").append("<div class='loungeHostingVideoAndTitleBox' id='" + videoInfo.videoId + "' style='opacity: 0;'>" +
             "<img class='loungeHostingThumbnail' src='" + videoInfo.thumbnailLink + "'/>" +
-            "<div class='loungeHostingDeleteButton'><div/>" +
+            "<div class='loungeHostingDeleteButton'></div>" +
             "<div class='loungeHostingDuration'>" + videoInfo.duration + "</div>" +
             "<div class='loungeHostingVideoTitle'>" + videoInfo.title + "</div>" +
             "<div class='loungeHostingVoteBox'>" +
@@ -391,6 +424,12 @@ socket.on("retrieveNewMusic", function(videoInfo) {
         $(".loungeHostingSpeakers > .musicList div[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
     }
     else if (isUserConnected) {
+        if ($("#loungeVotingMusicListBox > .musicList").find(".loungeVotingNoMusic").length == 1) {
+            $("#loungeVotingMusicListBox .loungeVotingNoMusic").hide("slow", function() {
+                $(this).remove();
+            });
+        }
+
         $("#loungeVotingMusicListBox > .musicList").append("<div class='loungeVotingVideoAndTitleBox' id='" + videoInfo.videoId + "' style='opacity: 0;'>" +
             "<img class='loungeVotingThumbnail' src='" + videoInfo.thumbnailLink + "'/>" +
             "<div class='loungeVotingDuration'>" + videoInfo.duration + "</div>" +
@@ -439,6 +478,49 @@ socket.on("retrieveLikedAndDislikedMusic", function(likedAndDislikedMusic) {
 
 });
 
+socket.on("musicRemoved", function(videoId) {
+    if (isUserHost) {
+        $("#loungeHostingLeftSpeaker").find("#" + videoId).hide("slow", function() {
+            if (player.getVideoData().video_id == $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0) {
+                player.loadVideoById($("#loungeHostingLeftSpeaker > .musicList > div:nth-child(2)").attr("id"));
+            }
+            else if (player.getVideoData().video_id == $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id")) {
+                player.loadVideoById("");
+            }
+
+            $(this).remove();
+
+            if (player.getPlayerState() === 0 && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0) {
+                player.loadVideoById($("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id"));
+            }
+            else if (player.getPlayerState() === 0) {
+                player.loadVideoById("");
+            }
+
+            if ($("#loungeHostingLeftSpeaker > .musicList > div").length == 0) {
+            $("#loungeHostingLeftSpeaker > .musicList").append("<p class='loungeHostingNoMusic' style='opacity: 0;'>Aucune musique</p>");
+            $("#loungeHostingLeftSpeaker > .musicList p[style='opacity: 0;']").animate({"opacity": "1"}, "slow");
+        }
+        });  
+    }
+    else if (isUserConnected) {
+        $("#loungeVotingMusicListBox").find("#" + videoId).hide("slow", function() {
+            $(this).remove();
+
+            if ($("#loungeVotingMusicListBox > .musicList > div").length == 0) {
+                $("#loungeVotingMusicListBox > .musicList").append("<p class='loungeVotingNoMusic' style='opacity: 0;'>Aucune musique</p>");
+                $("#loungeVotingMusicListBox > .musicList p[style='opacity: 0;']").animate({"opacity": "1"}, "slow");
+            }
+        });
+
+        $("#loungeVotingSearchResult").find("#" + videoId + " > .loungeVotingAdd").removeClass("loungeVotingAddActive");
+
+        if (videoIdListAlreadyAdded.indexOf(videoId) != -1) {
+            videoIdListAlreadyAdded.splice(videoIdListAlreadyAdded.indexOf(videoId), 1);
+        }
+    }
+});
+
 //////////
 // VOTE //
 //////////
@@ -477,10 +559,28 @@ socket.on("addScore", function(videoId) {
     if (isUserHost) {
         var actualScore = parseInt($(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text());
         $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text(actualScore + 1);
+        if (actualScore + 1 > 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#2ecc71");
+        }
+        else if (actualScore + 1 < 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#e74c3c");
+        }
+        else if (actualScore + 1 == 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#7f8c8d");
+        }
     }
     else if (isUserConnected) {
         var actualScore = parseInt($("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text());
         $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text(actualScore + 1);
+        if (actualScore + 1 > 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#2ecc71");
+        }
+        else if (actualScore + 1 < 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#e74c3c");
+        }
+        else if (actualScore + 1 == 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#7f8c8d");
+        }
     }
 });
 
@@ -488,10 +588,28 @@ socket.on("minusScore", function(videoId) {
     if (isUserHost) {
         var actualScore = parseInt($(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text());
         $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").text(actualScore - 1);
+        if (actualScore - 1 > 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#2ecc71");
+        }
+        else if (actualScore - 1 < 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#e74c3c");
+        }
+        else if (actualScore - 1 == 0) {
+            $(".loungeHostingSpeakers > .musicList").find("#" + videoId + " > .loungeHostingVoteBox > .loungeHostingScore").css("color", "#7f8c8d");
+        }
     }
     else if (isUserConnected) {
         var actualScore = parseInt($("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text());
         $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").text(actualScore - 1);
+        if (actualScore - 1 > 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#2ecc71");
+        }
+        else if (actualScore - 1 < 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#e74c3c");
+        }
+        else if (actualScore - 1 == 0) {
+            $("#loungeVotingMusicListBox > .musicList").find("#" + videoId + " > .loungeVotingVoteBox > .loungeVotingScore").css("color", "#7f8c8d");
+        }
     }
 });
 
@@ -519,6 +637,7 @@ socket.on("loungeClosedForUsers", function() {
         $(".musicList").html("");
         $(".chat").html("");
         $(".userList").html("");
+        videoIdListAlreadyAdded = [];
         socket.emit("userDisconnection");
 
     }, 500);

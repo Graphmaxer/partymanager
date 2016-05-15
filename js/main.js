@@ -1,12 +1,12 @@
 // Disable tab key
 $(document).keydown(function(objEvent) {
-    if (objEvent.keyCode == 9 && isUserConnected) {
-        objEvent.preventDefault();
-    }
+	if (objEvent.keyCode == 9 && isUserConnected) {
+		objEvent.preventDefault();
+	}
 });
 
 $('body').bind('touchmove', function (ev) { 
-  ev.preventDefault();
+	ev.preventDefault();
 });
 
 //////////
@@ -51,6 +51,32 @@ $("#loungeHostingRightUserImage").click(function() {
 	$("#loungeHostingChatBox").addClass("loungeHostingChatBoxHided");
 	$("#loungeHostingUserListBox").removeClass("loungeHostingUserListBoxHided");
 });
+
+
+////////////
+// VIDEO  //
+////////////
+
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+	player = new YT.Player("loungeHostingVideo", {
+		playerVars: { "rel": 0, "autoplay": 1, "iv_load_policy": 3 },
+		events: {
+			"onStateChange": onPlayerStateChange
+		}
+	});
+}
+
+function onPlayerStateChange(event) {
+	if(event.data === 0) {            
+		socket.emit("removeMusic", player.getVideoData().video_id);
+	}
+}
 
 
 /////////////////

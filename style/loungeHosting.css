@@ -5,14 +5,12 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    -webkit-transition: ease all .5s;
     transition: ease all .5s;
 }
 
 .loungeHostingHided {
     top: -3000px!important;
     visibility: hidden;
-    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
     transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
     opacity: 0;
     filter: alpha(opacity=0);
@@ -24,7 +22,7 @@
 
 .loungeHostingSpeakers {
     display: inline-block;
-    width: calc(100% - 4vw);
+    width: calc(100% - 2.5vw);
     height: inherit;
     margin-right: auto;
     margin-left: auto;
@@ -34,42 +32,40 @@
 
 #loungeHostingTrapezeLeft {
     display: inline-block;
-    height: 50vh;
-    border-left: 4vw solid #7f8d8e;
-	border-top: 15vh solid transparent;
-	border-bottom: 15vh solid transparent;
-	width: 0;
-	vertical-align: top;
+    height: 40vh;
+    border-left: 2.5vw solid #7f8d8e;
+    border-top: 20vh solid transparent;
+    border-bottom: 20vh solid transparent;
+    width: 0;
+    vertical-align: top;
 }
 
 #loungeHostingScreen {
     display: inline-block;
-    width: 35%;
-    height: 50vh;
-    margin-top: 15vh;
-    background-color: #1a1b1f;
+    margin-top: calc(20vh);
 }
 
 #loungeHostingTrapezeRight {
     display: inline-block;
-    height: 50vh;
-    border-right: 4vw solid #7f8d8e;
-	border-top: 15vh solid transparent;
-	border-bottom: 15vh solid transparent;
-	width: 0;
-	vertical-align: top;
+    height: 40vh;
+    border-right: 2.5vw solid #7f8d8e;
+    border-top: 20vh solid transparent;
+    border-bottom: 20vh solid transparent;
+    width: 0;
+    vertical-align: top;
 }
 
 #loungeHostingMainBox {
     display: inline-block;
     width: 100%;
     margin-top: 50vh;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 
 .loungeHostingSpeakerAndTrapeze {
     display: inline-block;
-    width: 30%;
+    width: calc((95% - (16/9) * 40vh) /2);
     height: 80vh;
     vertical-align: top;
 }
@@ -81,7 +77,20 @@
 
 #loungeHostingLeftSpeaker {
     overflow-y: auto;
-	overflow-x: hidden;
+    overflow-x: hidden;
+}
+
+.loungeHostingVideoAndTitleBox:first-child::before {
+    content: "";
+    background-image: url("../img/playIcon.png");
+    background-size: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 1%;
+    right: 75%;
+    height: 15px;
+    width: 15px;
+    top: 4%;
 }
 
 .loungeHostingVideoAndTitleBox {
@@ -95,6 +104,26 @@
     float: left;
     width: 25%;
     height: auto;
+}
+
+.loungeHostingDeleteButton {
+    position: absolute;
+    background-image: url("../img/deleteIcon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15px;
+    width: 15px;
+    margin: 0.75%;
+    -webkit-filter: grayscale(50%);
+            filter: grayscale(50%);
+    transition: ease all .3s;
+    cursor: pointer;
+}
+
+.loungeHostingDeleteButton:hover {
+    -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
 }
 
 .loungeHostingDuration {
@@ -118,8 +147,8 @@
     left: 25.5%;
     display: -webkit-box;
     overflow: hidden;
-    width: 66%;
-    height: 85%;
+    width: 63%;
+    height: 80%;
     min-height: 32px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -127,7 +156,7 @@
     text-overflow: ellipsis;
     color: #2980b9;
     border-radius: 15px 0;
-    padding: 15px 0px;
+    padding: 0px 5px;
     background-color: #36495C;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -183,6 +212,17 @@
     -webkit-filter: grayscale(0%)!important;
     filter: grayscale(0%)!important;
 }
+
+
+/************
+*** VIDEO ***
+************/
+
+#loungeHostingVideo {
+    height: 40vh;
+    width: calc((16/9) * 40vh);
+}
+
 
 /****************
 *** RIGHT BOX ***
