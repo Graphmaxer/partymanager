@@ -36,7 +36,7 @@
 					<div class="chat">
 					</div>
 					<form class="chatForm" onsubmit="return(false)">	
-						<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off" pattern="[a-zA-Z0-9\u00C0-\u017F ]+"/><br/>
+						<input type="text" class="chatInputMessage" placeholder="Message" autocomplete="off" pattern="[a-zA-Z0-9\u00C0-\u017F?! ]+"/><br/>
 						<button class="chatSendButton" type="submit">Envoyer</button>
 					</form>
 				</div>

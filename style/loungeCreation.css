@@ -1,32 +1,45 @@
 #loungeCreation {
-	position: absolute;
-  	right: 0%;
-  	left: 0%;
-  	transform: translateY(-50%);
-	top: 50%;
-	margin: auto;
-	width: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+
     display: table;
-    -webkit-transition: ease all 0.5s;
-	transition: ease all 0.5s;
+
+    width: 100%;
+    margin: auto;
+
+    -webkit-transition: ease all .5s;
+            transition: ease all .5s;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 
 .loungeCreationHided {
-	right: -3000px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+    right: -3000px!important;
+
+    visibility: hidden;
+
+    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+            transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
 }
 
 .loungeCreationHidedBottom {
-	bottom: -3000px!important;
-	opacity: 0;
-	filter:alpha(opacity=0);
-	visibility: hidden;
-	-webkit-transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
-	transition: ease opacity 0.5s, ease left 0.5s, visibility 0s 0.5s;
+    bottom: -3000px!important;
+
+    visibility: hidden;
+
+    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+            transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
 }
 
 /***************************
@@ -34,50 +47,58 @@
 ***************************/
 
 #loungeCreation h1 {
-	margin-top: 0px;
-	margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .loungeCreationField {
-	color: #2c3e50;
-	margin: 3px;
-	font-size: 1.1em;
+    font-size: 1.1em;
+
+    margin: 3px;
+
+    color: #2c3e50;
 }
 
 #loungeCreationDescription {
-	width: 90%;
-	max-width: 400px;
+    width: 90%;
+    max-width: 400px;
 }
 
 #loungeCreationButton {
-	height: 10vh;
-	font-size: 1.7em;
-	line-height: 9vh;
-	width: 250px;
-	background-color: #3498db;
-	display: inline-block;
-	color: #ecf0f1;
-	border-radius: 15px;
-	border: solid 3px #3498db;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    font-size: 1.7em;
+    line-height: 9vh;
+
+    display: inline-block;
+
+    width: 250px;
+    height: 10vh;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    color: #ecf0f1;
+    border: solid 3px #3498db;
+    border-radius: 15px;
+    background-color: #3498db;
 }
 
 #loungeCreationButton:hover {
-	background-color: #2980b9;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    cursor: pointer;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    background-color: #2980b9;
 }
 
 #loungeCreationButton:active {
-	background-color: #34495e;
-	-webkit-transition: ease all 0.1s;
-	transition: ease all 0.1s;
+    -webkit-transition: ease all .1s;
+            transition: ease all .1s;
+
+    background-color: #34495e;
 }
 
 #loungeCreationButton:focus {
-	outline: 0;
+    outline: 0;
 }
 
 /************************
@@ -85,16 +106,20 @@
 ************************/
 
 #loungeCreationBack {
-	display: inline-block;
-	margin-top: 5px;
-	color: #34495e;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    display: inline-block;
+
+    margin-top: 5px;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    color: #34495e;
 }
 
 #loungeCreationBack:hover {
-	color: #7f8c8d;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    cursor: pointer;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    color: #7f8c8d;
 }

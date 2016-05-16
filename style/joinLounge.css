@@ -1,31 +1,54 @@
 #joinLounge {
     position: absolute;
-  	right: 0%;
-  	left: 0%;
-  	transform: translateY(-50%);
-	top: 50%;
+    top: 50%;
+    right: 0;
+    left: 0;
+
     display: table;
-    width: 90%;
+
+    width: 100%;
     margin: auto;
-    transition: ease all .5s;
+
+    -webkit-transition: ease all .5s;
+            transition: ease all .5s;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 
 .joinLoungeHided {
     right: -3000px!important;
+
     visibility: hidden;
-    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+            transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
     opacity: 0;
+
     filter: alpha(opacity=0);
+}
+
+#loungeList {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    max-height: 50vh;
 }
 
 .loungeListItem {
     font-size: 1.250em;
     line-height: 25px;
+
     display: inline-block;
+
     height: 25px;
     margin: 5px;
     padding: 10px;
-    transition: ease all .3s;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     border: solid 3px #3498db;
     border-radius: 15px;
     background-color: #3498db;
@@ -33,17 +56,22 @@
 
 .loungeListItem:hover {
     cursor: pointer;
-    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     background-color: #2980b9;
 }
 
 .loungeListItem:active {
-    transition: ease all .1s;
+    -webkit-transition: ease all .1s;
+            transition: ease all .1s;
+
     background-color: #34495e;
 }
 
 .loungeListName {
     font-weight: 700;
+
     color: #2c3e50;
 }
 
@@ -62,12 +90,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    max-width: 350px;
+
     width: 95%;
+    max-width: 350px;
     height: 150px;
     margin: auto;
     padding: 5px;
-    transition: ease all .5s;
+
+    -webkit-transition: ease all .5s;
+            transition: ease all .5s;
+
     color: #ecf0f1;
     border-radius: 10px;
     background-color: #34495e;
@@ -76,9 +108,14 @@
 
 .passwordPopupHided {
     top: -100px!important;
+
     visibility: hidden;
-    transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
+    -webkit-transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+            transition: ease opacity .5s, ease left .5s, visibility 0s .5s;
+
     opacity: 0;
+
     filter: alpha(opacity=0);
 }
 
@@ -87,21 +124,28 @@
 }
 
 #passwordPopupUserName {
-    width: calc(90% - 60px);
+    width: -webkit-calc(90% - 60px);
+    width:         calc(90% - 60px);
 }
 
 #passwordPopupLoungePassword {
-    width: calc(80% - 120px);
+    width: -webkit-calc(80% - 120px);
+    width:         calc(80% - 120px);
 }
 
 #passwordPopupLoungeButton {
     font-size: 1em;
     line-height: 20px;
+
     display: inline-block;
+
     width: 200px;
     height: 30px;
     margin-top: 4px;
-    transition: ease all .3s;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     color: #ecf0f1;
     border: solid 3px #3498db;
     border-radius: 15px;
@@ -110,12 +154,16 @@
 
 #passwordPopupLoungeButton:hover {
     cursor: pointer;
-    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     background-color: #2980b9;
 }
 
 #passwordPopupLoungeButton:active {
-    transition: ease all .1s;
+    -webkit-transition: ease all .1s;
+            transition: ease all .1s;
+
     background-color: #34495e;
 }
 
@@ -125,14 +173,20 @@
 
 #passwordPopupLoungeBack {
     font-size: .8em;
+
     margin-top: 9px;
-    transition: ease all .3s;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     color: #bdc3c7;
 }
 
 #passwordPopupLoungeBack:hover {
     cursor: pointer;
-    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     color: #7f8c8d;
 }
 
@@ -142,13 +196,19 @@
 
 #joinLoungeBack {
     display: inline-block;
+
     margin-top: 15px;
-    transition: ease all .3s;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     color: #34495e;
 }
 
 #joinLoungeBack:hover {
     cursor: pointer;
-    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
     color: #7f8c8d;
 }

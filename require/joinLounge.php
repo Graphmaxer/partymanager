@@ -12,7 +12,7 @@
 			<div id="passwordPopupLoungeTitle">Rejoindre : <span id="passwordPopupLoungeName"></span></div>
 
 			<label for="passwordPopupUserName">Nom : </label>
-			<input type="text" id="passwordPopupUserName" pattern="[a-zA-Z0-9\u00C0-\u017F]+" maxlength="24" required/><br/>
+			<input type="text" id="passwordPopupUserName" pattern="[a-zA-Z0-9\u00C0-\u017F?!]+" maxlength="24" required/><br/>
 
 			<label for="passwordPopupLoungePassword">Mot de passe : </label>
 			<input type="password" id="passwordPopupLoungePassword" maxlength="49"/><br/>

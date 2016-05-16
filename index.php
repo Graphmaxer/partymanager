@@ -43,6 +43,7 @@
 
 	require_once("require/loungeVoting.php"); ?>
 
+	<a href="LICENSE.md" id="license" target="_blank">Licensed under MIT license</a>
 	<script type="text/javascript" src="js/client.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

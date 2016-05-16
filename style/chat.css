@@ -1,79 +1,97 @@
 .chat {
-	overflow-y: auto;
-	overflow-x: hidden;
-	height: calc(100% - 75px);
-	width: 100%;
-	background-color: #34495e;
-	word-break: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    width: 100%;
+    height: -webkit-calc(100% - 75px);
+    height:         calc(100% - 75px);
+
+    word-break: break-word;
+
+    background-color: #34495e;
 }
 
-.chatMessage, .chatHostMessage {
-	padding: 2px;
-	border-bottom: solid 1px #95a5a6;
+.chatMessage,
+.chatHostMessage {
+    padding: 2px;
+
+    border-bottom: solid 1px #95a5a6;
 }
 
 .chatMessageAuthor {
-	font-weight: 700;
-	color: #95a5a6;
+    font-weight: 700;
+
+    color: #95a5a6;
 }
 
 .chatMessageContent {
-	color: #ecf0f1;
-	word-wrap: break-word;	
+    word-wrap: break-word;
+
+    color: #ecf0f1;
 }
 
 .chatHostMessageAuthor {
-	font-weight: 700;
-	color: #3498db;
+    font-weight: 700;
+
+    color: #3498db;
 }
 
 .chatHostMessageContent {
-	color: #ecf0f1;
-	font-style: italic;
-	word-wrap: break-word;
+    font-style: italic;
+
+    word-wrap: break-word;
+
+    color: #ecf0f1;
 }
 
 .chatForm {
-	height: 75px;
+    height: 75px;
 }
 
 .chatInputMessage {
-	width: 85%;
+    width: 85%;
 }
 
 .chatSendButton {
-	height: 30px;
-	font-size: 1.1em;
-	line-height: 20px;
-	width: 100px;
-	background-color: #3498db;
-	display: inline-block;
-	color: #ecf0f1;
-	border-radius: 15px;
-	border: solid 3px #3498db;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    font-size: 1.1em;
+    line-height: 20px;
+
+    display: inline-block;
+
+    width: 100px;
+    height: 30px;
+
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    color: #ecf0f1;
+    border: solid 3px #3498db;
+    border-radius: 15px;
+    background-color: #3498db;
 }
 
 .chatSendButton:hover {
-	background-color: #2980b9;
-	cursor: pointer;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+    cursor: pointer;
+    -webkit-transition: ease all .3s;
+            transition: ease all .3s;
+
+    background-color: #2980b9;
 }
 
 .chatSendButton:active {
-	background-color: #34495e;
-	-webkit-transition: ease all 0.1s;
-	transition: ease all 0.1s;
+    -webkit-transition: ease all .1s;
+            transition: ease all .1s;
+
+    background-color: #34495e;
 }
 
 .chatSendButton:focus {
-	outline: 0;
+    outline: 0;
 }
 
 .chatNoMessage {
-	color: #3498db;
     margin-top: 5px;
     margin-bottom: 5px;
+
+    color: #3498db;
 }
