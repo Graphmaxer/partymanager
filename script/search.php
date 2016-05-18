@@ -32,6 +32,10 @@
 
 		$noResult = true;
 	}
+	else if ($totalResults < $resultsPerPage) {
+		$resultsPerPage = $totalResults;
+		$noResult = true;
+	}
 	else {
 		$nextPageToken = $decodedJsonVideos -> {"nextPageToken"};
 	}

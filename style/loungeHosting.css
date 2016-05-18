@@ -180,7 +180,7 @@
 }
 
 .loungeHostingVideoTitle {
-    font-size: 1em;
+    font-size: .95em;
     font-weight: 700;
 
     position: absolute;
@@ -190,9 +190,9 @@
     display: -webkit-box;
     overflow: hidden;
 
-    width: 63%;
+    width: 62%;
     height: 80%;
-    min-height: 32px;
+    min-height: 36px;
     padding: 0 5px;
 
     -webkit-transform: translateY(-50%);

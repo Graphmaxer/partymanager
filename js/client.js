@@ -499,14 +499,11 @@ socket.on("musicRemoved", function(videoId) {
             if (player.getVideoData().video_id === $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0 && videoId == player.getVideoData().video_id) {
                 player.loadVideoById($("#loungeHostingLeftSpeaker > .musicList > div:nth-child(2)").attr("id"));
             }
-            
-            if (player.getVideoData().video_id === $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length == 0) {
-                player.loadVideoById("");
-            }
 
             $(this).remove();
 
             if ($("#loungeHostingLeftSpeaker > .musicList > div").length == 0) {
+                player.loadVideoById("");
                 $("#loungeHostingLeftSpeaker > .musicList").append("<p class='loungeHostingNoMusic' style='opacity: 0;'>Aucune musique</p>");
                 $("#loungeHostingLeftSpeaker > .musicList p[style='opacity: 0;']").animate({ "opacity": "1" }, "slow");
             }
