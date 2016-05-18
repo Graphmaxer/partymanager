@@ -1,12 +1,8 @@
 @-ms-viewport {
-    zoom: 1;
-
     width: device-width;
 }
 
 @viewport {
-    zoom: 1;
-
     width: device-width;
 }
 

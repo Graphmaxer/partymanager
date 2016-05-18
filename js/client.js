@@ -496,19 +496,15 @@ socket.on("retrieveLikedAndDislikedMusic", function(likedAndDislikedMusic) {
 socket.on("musicRemoved", function(videoId) {
     if (isUserHost) {
         $("#loungeHostingLeftSpeaker").find("#" + videoId).hide("slow", function() {
-            if (player.getVideoData().video_id == $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0) {
+            if (player.getVideoData().video_id === $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0 && videoId == player.getVideoData().video_id) {
                 player.loadVideoById($("#loungeHostingLeftSpeaker > .musicList > div:nth-child(2)").attr("id"));
-            } else if (player.getVideoData().video_id == $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id")) {
+            }
+            
+            if (player.getVideoData().video_id === $("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id") && $("#loungeHostingLeftSpeaker > .musicList > div").length == 0) {
                 player.loadVideoById("");
             }
 
             $(this).remove();
-
-            if (player.getPlayerState() === 0 && $("#loungeHostingLeftSpeaker > .musicList > div").length != 0) {
-                player.loadVideoById($("#loungeHostingLeftSpeaker > .musicList > div:first-child").attr("id"));
-            } else if (player.getPlayerState() === 0) {
-                player.loadVideoById("");
-            }
 
             if ($("#loungeHostingLeftSpeaker > .musicList > div").length == 0) {
                 $("#loungeHostingLeftSpeaker > .musicList").append("<p class='loungeHostingNoMusic' style='opacity: 0;'>Aucune musique</p>");

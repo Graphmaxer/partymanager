@@ -5,10 +5,6 @@ $(document).keydown(function(objEvent) {
     }
 });
 
-$('body').bind('touchmove', function(ev) {
-    ev.preventDefault();
-});
-
 //////////
 // HOME //
 //////////
