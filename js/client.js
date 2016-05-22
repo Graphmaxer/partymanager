@@ -278,7 +278,7 @@ socket.on("retrieveNewMessage", function(message) {
 });
 
 var sendMessageLocked = false;
-var sendsendMessageErrorLocked = false;
+var sendMessageErrorLocked = false;
 
 $(".chatSendButton").click(function() {
     if (sendMessageLocked == false) {
