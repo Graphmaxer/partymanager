@@ -290,7 +290,7 @@ $(".chatSendButton").click(function() {
 
         setTimeout(function() {
             sendMessageLocked = false;
-        }, 10000);
+        }, 4500);
     } else if (sendMessageErrorLocked == false) {
         sendMessageErrorLocked = true;
         $("#errorBox").append("<div class='errorMessage' style='display: none;'>Erreur : vous devez attendre avant d'envoyer un nouveau message</div>");
